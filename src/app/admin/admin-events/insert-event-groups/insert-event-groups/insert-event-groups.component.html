@@ -1,0 +1,62 @@
+<button type="button" class="btn btn-primary col-12" (click)="openModal(template)">Add group</button>
+
+<ng-template #template>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">New group</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+        <form [formGroup] = "groupForm" (ngSubmit) = "insertEventGroup()">
+
+            <div class="row">
+                <div class="form-group col-sm-12 col-md-6 col-lg-6">
+                    <select (change) = "setGroupVariable($event)" class="form-control" formControlName="selectGroup">
+                        <option [ngValue]="null" disabled>Select group</option>
+                        <option *ngFor="let group of groups" [ngValue] ="group.group_fk">{{group.name}}</option>
+                    </select>
+                    <div *ngIf="submitted == true && selectedGroup == null">
+                        <p style="color: #CC000E; font-size: small;">Must select group</p>
+                    </div>
+                </div>
+    
+                <div class="form-group col-6">
+    
+                    <input id="Description" type="number" placeholder="Quantity" formControlName="quantity"
+                     class="form-control" [ngClass]="{ 'is-invalid': submitted && f.quantity.errors }"/>
+        
+                    <div *ngIf="submitted && f.quantity.errors" class="invalid-feedback">
+                        <div *ngIf="f.quantity.errors.required">Is required</div>
+                    </div>
+    
+                </div>
+            </div>
+            <div class="form-group col-sm-12 col-md-6 col-lg-10">
+                <button class="btn btn-success btn-block" type="submit">Insert group</button>
+            </div>
+        </form>
+  </div>
+</ng-template>
+
+<table class="table table-hover">
+    
+    <thead>
+      <tr>
+        <th>Volunteers</th>
+      </tr>
+    </thead>
+    <tbody>
+      <div *ngIf="eventGroups?.length != 0">
+        <tr *ngFor="let item of eventGroups">
+          <td>{{item.quantity}}</td>
+          <td>{{item.name}}</td>
+          <td> 
+            <i (click)="deleteEventGroup(item.event_group_id)" class="pointer fas fa-trash-alt"></i> 
+          </td>
+
+        </tr>
+      </div>   
+    </tbody>
+
+</table>

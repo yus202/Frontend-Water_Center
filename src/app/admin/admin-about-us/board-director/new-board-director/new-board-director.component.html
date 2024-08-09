@@ -1,0 +1,90 @@
+
+<div class="row animated fadeIn">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+
+
+        <div class="text-right">
+          <button [routerLink]="[ '/admin/list/board/directors' ]"
+            class="btn waves-effect waves-light btn-rounded btn-primary">
+            <i class="fas fa-arrow-alt-circle-left"></i>
+            Back
+          </button>
+        </div>
+
+        <div class="container">
+          <form #form="ngForm" [formGroup]="board"  (ngSubmit)="onSubmit( )" autocomplete="off">
+
+            <input hidden formControlName="id">
+
+            <div class="container">
+              <div class="form-group">
+                <label> Board Director Name</label>
+                <input maxlength="100" formControlName="name" [class.is-invalid]="invalidName" class="form-material form-control" required>
+                <small *ngIf="invalidName" class="text-danger">
+                  This field is requiered
+                </small>
+                <small class="text-danger" *ngIf="board.value.name.length > 99">
+                  Limit is 100 Characters
+                </small>
+              </div>
+            </div>
+
+            <input hidden name="board_directors_fk" formControlName="board_directors_fk">
+
+              <div class="container">
+                <div class="row">
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                       <label> English description 
+                        <small>
+                          (Limit 360 Characters - {{board.value.descriptionEn.length}})
+                        </small>
+                      </label>
+                      <textarea maxlength="360" required formControlName="descriptionEn" [class.is-invalid]="invalidDescriptionEn" class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
+                    </div>
+                    <small *ngIf="invalidDescriptionEn" class="text-danger">
+                      This field is requiered
+                    </small>
+                    <small class="text-danger" *ngIf="board.value.descriptionEn.length > 359">
+                      Limit is 360 Characters
+                    </small>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                       <label> Spanish description 
+                        <small>
+                          (Limit 360 Characters - {{board.value.descriptionSp.length}})
+                        </small>
+                      </label>
+                      <textarea maxlength="360" required formControlName="descriptionSp" [class.is-invalid]="invalidDescriptionSp" class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
+                    </div>
+                    <small *ngIf="invalidDescriptionSp" class="text-danger">
+                      This field is requiered
+                    </small>
+                    <small class="text-danger" *ngIf="board.value.descriptionSp.length > 359">
+                      Limit is 360 Characters
+                    </small>
+                  </div>
+                </div>
+              </div>
+
+            <div class="form-group">
+              <div *ngIf="button === 1" class="container col-7">
+                <button type="submit" [disabled]="form.invalid" class="btn btn-success btn-block fas">SAVE <i
+                    class="fas fa-user-plus"></i></button>
+              </div>
+              <div *ngIf="button == 2" class="container col-7">
+                <button type="submit" [disabled]="form.invalid" class="btn btn-warning btn-block fas">UPDATE <i class="fas fa-pencil-alt"></i></button>
+              </div>
+            </div>
+
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+

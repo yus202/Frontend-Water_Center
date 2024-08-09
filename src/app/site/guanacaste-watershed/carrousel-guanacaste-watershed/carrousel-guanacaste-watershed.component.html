@@ -1,0 +1,57 @@
+<!--negocios aliados Inicio-->
+<div class="container">
+
+  <div class="row text-center mt-4">
+    <div class="col">
+      <h1 class="title" *ngIf="languajeID ==1">Our Strategy</h1>
+      <h1 class="title" *ngIf="languajeID ==2">NUESTRA ESTRATEGIA</h1> 
+    </div> 
+  </div>
+
+  <hr style="width: 100%;" color="#774F38">
+
+  <div class="card-columns mt-4"  >
+    <div class="card text-center border mt-3 shadow p-3 mb-5 bg-white rounded" *ngFor="let Info of GWDROW">
+      <div class="container text-center">
+        <img class="image-size"
+             src="{{Info.image}}" 
+             alt="Imagenes de nuestra estrategia ">
+             
+      </div>
+      
+      <hr style="margin-bottom: -10px;">
+
+      <div class="card-body">
+        <h5 class="card-title"> <strong>{{ Info.title }}</strong> </h5>
+        <p class="card-text text-justify">  {{Info.decription}} </p>
+      </div>
+    </div>
+  </div>
+
+<div class="container mb-5">
+  <div class="row text-center">
+    <div class="col">
+      <!-- Facebook -->
+      <a id="btnfbing"  target="_blank"class="btn btn-primary m-2" style="background-color: #3b5998"
+        href="https://www.facebook.com/RestoringOurWatershed" role="button"><i class="fab fa-facebook-f"></i></a>
+      <!-- Instagram -->
+      <a id="IG" target="_blank" class="btn btn-primary m-2" href="https://www.instagram.com/nandamojo/"><i
+          class="fab fa-instagram"></i></a>
+          <div class="card12 border-success mb-3">
+            <div class="card-header bg-transparent border-success">
+              <h1 class="title" *ngIf="languajeID ==1">Restoring Our Watershed</h1>
+              <h1 class="title" *ngIf="languajeID ==2">Restaurando Nuestra Cuenca</h1> 
+            </div>
+            <div class="card-body text-success">
+              <a type="button" target="_blank" class="btn btn-success" href="https://ourwatershed.org/">
+                <a  *ngIf="languajeID ==1">Visit www.ourwatershed.org Here</a>
+                <a  *ngIf="languajeID ==2">Visite www.ourwatershed.org Aquí</a> 
+              </a> 
+            </div>
+          </div>
+        
+    </div>
+  </div>
+  
+</div>
+<!--negocios aliados -->

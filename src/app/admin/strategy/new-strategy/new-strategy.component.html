@@ -1,0 +1,140 @@
+
+<div class="row animated fadeIn">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+  
+  
+          <div class="text-right">
+            <button [routerLink]="[ '/admin/strategies' ]"
+              class="btn waves-effect waves-light btn-rounded btn-primary">
+              <i class="fas fa-arrow-alt-circle-left"></i>
+              Back
+            </button>
+          </div>
+  
+          <div class="container">
+            <form #form="ngForm" [formGroup]="strategy"  (ngSubmit)="onSubmit( )" autocomplete="off">
+  
+              <input hidden formControlName="id">
+  
+              <div class="container">
+                  <div class="row">
+                      <div class="col-sm">
+                        <div class="form-group">
+                            <label> Image of Strategy </label>
+                            <input maxlength="100" formControlName="image" [class.is-invalid]="invalidImage" class="form-material form-control" required>
+                            <small *ngIf="invalidImage" class="text-danger">
+                              This field is requiered
+                            </small>
+                            <small class="text-danger" *ngIf="strategy.value.image.length > 109">
+                              Limit is 110 Characters
+                            </small>
+                          </div>
+                      </div>
+                      <div class="col-sm text-center">
+                        <h4>Image</h4>
+                        <div *ngIf="strategy.value.image.length > 32" class="form-group container text-center">
+                          <img src="{{strategy.value.image}}" height="50%" width="70%">
+                        </div>
+                    </div>
+
+                  </div>
+               
+              </div>
+  
+              <input hidden name="strategy_fk" formControlName="strategy_fk">
+  
+              <div class="container">
+                <div class="row">
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                       <label> English name 
+                        <small>
+                          (Limit 110 Characters - {{strategy.value.titleEn.length}})
+                        </small>
+                      </label>
+                      <textarea maxlength="110" required formControlName="titleEn" [class.is-invalid]="invalidTitleEn" class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
+                    </div>
+                    <small *ngIf="invalidTitleEn" class="text-danger">
+                      This field is requiered
+                    </small>
+                    <small class="text-danger" *ngIf="strategy.value.titleEn.length > 109">
+                      Limit is 110 Characters
+                    </small>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                       <label> Spanish name 
+                        <small>
+                          (Limit 110 Characters - {{strategy.value.titleSp.length}})
+                        </small>
+                      </label>
+                      <textarea maxlength="110" required formControlName="titleSp" [class.is-invalid]="invalidTitleSp" class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
+                    </div>
+                    <small *ngIf="invalidTitleSp" class="text-danger">
+                      This field is requiered
+                    </small>
+                    <small class="text-danger" *ngIf="strategy.value.titleSp.length > 109">
+                      Limit is 110 Characters
+                    </small>
+                  </div>
+                </div>
+              </div>
+
+                <div class="container">
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                         <label> English description 
+                          <small>
+                            (Limit 500 Characters - {{strategy.value.decriptionEn.length}})
+                          </small>
+                        </label>
+                        <textarea maxlength="500" required formControlName="decriptionEn" [class.is-invalid]="invalidDecriptionEn" class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
+                      </div>
+                      <small *ngIf="invalidDecriptionEn" class="text-danger">
+                        This field is requiered
+                      </small>
+                      <small class="text-danger" *ngIf="strategy.value.decriptionEn.length > 499">
+                        Limit is 500 Characters
+                      </small>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                         <label> Spanish description 
+                          <small>
+                            (Limit 500 Characters - {{strategy.value.decriptionSp.length}})
+                          </small>
+                        </label>
+                        <textarea maxlength="500" required formControlName="decriptionSp" [class.is-invalid]="invalidDecriptionSp" class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
+                      </div>
+                      <small *ngIf="invalidDecriptionSp" class="text-danger">
+                        This field is requiered
+                      </small>
+                      <small class="text-danger" *ngIf="strategy.value.decriptionSp.length > 499">
+                        Limit is 500 Characters
+                      </small>
+                    </div>
+                  </div>
+                </div>
+  
+              <div class="form-group">
+                <div *ngIf="button === 1" class="container col-7">
+                  <button type="submit" [disabled]="form.invalid" class="btn btn-success btn-block fas">SAVE <i
+                      class="fas fa-user-plus"></i></button>
+                </div>
+                <div *ngIf="button == 2" class="container col-7">
+                  <button type="submit" [disabled]="form.invalid" class="btn btn-warning btn-block fas">UPDATE <i class="fas fa-pencil-alt"></i></button>
+                </div>
+              </div>
+  
+            </form>
+          </div>
+  
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  

@@ -1,0 +1,98 @@
+.our-team {
+    padding: 30px 0 40px;
+    margin-bottom: 30px;
+    background-color: rgb(245, 245, 245);
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+  
+  .our-team .picture {
+    display: inline-block;
+    height: 200px;
+    width: 200px;
+    margin-bottom: 50px;
+    z-index: 1;
+    position: relative;
+  }
+  
+
+  
+
+  
+  .our-team .picture::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    border-radius: 45%;
+    background-color: #0d8e95;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+  
+  .our-team .picture img {
+    width: 100%;
+    height: auto;
+    border-radius: 42%;
+    transform: scale(1);
+    transition: all 0.9s ease 0s;
+  }
+  
+  .our-team .title {
+    display: block;
+    font-size: 15px;
+    color: #4e5052;
+    text-transform: capitalize;
+  }
+  
+  .our-team .social {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    background-color:#89BAB8;
+    position: absolute;
+    bottom: -100px;
+    left: 0;
+   
+  }
+  
+  .our-team .social {
+    bottom: 0;
+  }
+  
+  
+  
+  .our-team .social li a {
+    display: block;
+    padding: 10px;
+    font-size: 17px;
+    color: white;
+    transition: all 0.3s ease 0s;
+    text-decoration: none;
+  }
+  
+  
+  #negocio_Aliadas>hr {
+    margin-bottom: 100px;
+}
+
+h1 {
+    color: #774F38;
+}
+
+hr {
+ align-items: center;
+ margin-left: 0;
+ margin-right: 0;
+}
+
+#negocio_Aliadas{
+    background-color: rgb(255, 255, 255);
+    padding-top: 100px;
+    padding-bottom: 100px;
+    text-align: center;
+}
+/* fin negocios aliados */

@@ -1,0 +1,154 @@
+<div *ngFor="let info of companyInfo" class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-5">
+        <h3 *ngIf="languageID == 1" class="text-white title">Contact us</h3>
+        <h3 *ngIf="languageID == 2" class="text-white title">Contáctanos</h3>
+        <ul class="list-unstyled">
+          <li>
+            <p>
+              <i class="fas fa-phone fa-1x mr-2"></i>&nbsp; {{ info.telephone }}
+            </p>
+          </li>
+          <li>
+            <p>
+              <i class="fas fa-envelope fa-1x mr-2"></i>&nbsp;{{ info.email }}
+            </p>
+          </li>
+          <li>
+            <a target="_blank" style="color: white;" href="https://www.facebook.com/guanacastewatercenter/">
+              <i class="fab fa-facebook-f fa-1x mr-2"></i>&nbsp;{{
+                info.facebook
+              }}
+            </a>
+          </li>
+          <li>
+            <a target="_blank" style="color: white;" href="https://www.instagram.com/guanacaste.water.center/">
+              <i class="fab fa-instagram fa-1x mr-2 mt-3"></i>{{ info.instagram }}
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-md-2"></div>
+      <div id="footer" class="col-sm">
+        <h5 class="text-center" *ngIf="languageID == 1">Navigation</h5>
+        <h5 *ngIf="languageID == 2">Navegación</h5>
+        <hr color="#ffffff">
+        <ul class="list-unstyled quick-links row">
+          <li>
+            <a *ngIf="languageID == 1" routerLinkActive="active" routerLink="/"
+              ><i class="fa fa-angle-double-right"></i>Home</a
+            >
+            <a *ngIf="languageID == 2" routerLinkActive="active" routerLink="/"
+              ><i class="fa fa-angle-double-right"></i>Inicio</a
+            >
+          </li>
+
+          <hr>
+          <li>
+            <a
+              *ngIf="languageID == 1"
+              routerLinkActive="active"
+              routerLink="/about-us"
+              ><i class="fa fa-angle-double-right"></i>About us</a
+            >
+            <a
+              *ngIf="languageID == 2"
+              routerLinkActive="active"
+              routerLink="/about-us"
+              ><i class="fa fa-angle-double-right"></i>Sobre nosotros</a
+            >
+          </li>
+          <hr>
+          <li>
+            <a
+              *ngIf="languageID == 1"
+              routerLinkActive="active"
+              routerLink="/restoring-our-watershed"
+            >
+              <i class="fa fa-angle-double-right"></i>Restoring Our Watershed</a
+            >
+            <a
+              *ngIf="languageID == 2"
+              routerLinkActive="active"
+              routerLink="/restoring-our-watershed"
+              ><i class="fa fa-angle-double-right"></i>Asociación Nandamojo</a
+            >
+          </li>
+          <hr>
+          <li>
+            <a
+              *ngIf="languageID == 1"
+              routerLinkActive="active"
+              routerLink="/guanacaste-watershed"
+            >
+              <i class="fa fa-angle-double-right"></i>Nandamojo watershed</a
+            >
+            <a
+              *ngIf="languageID == 2"
+              routerLinkActive="active"
+              routerLink="/guanacaste-watershed"
+              ><i class="fa fa-angle-double-right"></i>Cuenca del río
+              Nandamojo</a
+            >
+          </li>
+          <hr>
+          <li>
+            <a
+              *ngIf="languageID == 1"
+              routerLinkActive="active"
+              routerLink="/bees-for-trees"
+              ><i class="fa fa-angle-double-right"></i>Bees for Trees</a
+            >
+            <a
+              *ngIf="languageID == 2"
+              routerLinkActive="active"
+              routerLink="/bees-for-trees"
+            >
+              <i class="fa fa-angle-double-right"></i>Abejas por árboles</a
+            >
+          </li>
+          <hr>
+          <li>
+            <a
+              *ngIf="languageID == 1"
+              routerLinkActive="active"
+              routerLink="/media"
+            ><i class="fa fa-angle-double-right "></i>Media</a
+            >
+            <a
+              *ngIf="languageID == 2"
+              routerLinkActive="active"
+              routerLink="/media"
+            ><i class="fa fa-angle-double-right "></i>Multimedia</a
+            >
+          </li>
+          <hr>
+          <li>
+            <a
+              *ngIf="languageID == 2"
+              routerLinkActive="active"
+              routerLink="/reports"
+              ><i class="fa fa-angle-double-right"></i>Reportes</a
+            >
+            <a
+              *ngIf="languageID == 1"
+              routerLinkActive="active"
+              routerLink="/reports"
+              ><i class="fa fa-angle-double-right"></i>Reports</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Copyright -->
+
+  <div class="footer-copyright text-center mt-3">
+    <p class="text-Copyright">
+      © Copyright: {{ year }} {{ info.company_name }}
+    </p>
+  </div>
+  <!-- Copyright -->
+</div>

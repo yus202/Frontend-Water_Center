@@ -1,0 +1,18 @@
+<div class="container-board">
+    <div class="container mt-5 ">
+        <div class="row ">
+            <div class="col-xl-12 col-xs-12 col-md-12 col-lg-12 ">
+                <div class="mt-5 text-center">
+                    <h1 class="title" *ngIf="languageID ==1">Row Board of Directors</h1>
+                    <h1 class="title" *ngIf="languageID ==2">Junta Directiva de Asociación Nandamojo</h1>
+                    <hr color="#774F38" />
+                </div>
+
+                <div *ngFor="let item of boardData"  class="container mt-2 margen col-sm-12 ">
+                    <h6><b>{{ item.name }}, </b> {{ item.description}} </h6>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

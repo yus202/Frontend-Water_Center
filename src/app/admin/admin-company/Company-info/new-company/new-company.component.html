@@ -1,0 +1,548 @@
+<div class="row animated fadeIn">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+        <div class="text-right">
+          <button [routerLink]="['/admin/list/company']" class="btn waves-effect waves-light btn-rounded btn-primary">
+            <i class="fas fa-arrow-alt-circle-left"></i>
+            Back
+          </button>
+        </div>
+
+        <div class="container">
+          <form #form="ngForm" [formGroup]="company" (ngSubmit)="ngSubmit()" autocomplete="off">
+            <input hidden formControlName="id" />
+
+            <div class="container">
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label> English Name</label>
+                    <input type="text" readonly *ngIf="inputName === true" class="form-material form-control" formControlName="company_nameEn">
+                    <input  *ngIf="inputName === false" maxlength="150" [class.is-invalid]="invalidNameEn" class="form-material form-control"
+                      type="text" formControlName="company_nameEn" required />
+                    <small *ngIf="invalidNameEn" class="text-danger">
+                      This field is requiered
+                    </small>
+                    <small class="text-danger" *ngIf="company.value.company_nameEn.length > 149">
+                      Only 250 Characters
+                    </small>
+
+                    <div class="form-group">
+                      <label> Spanish Name</label>
+                      <input type="text" readonly *ngIf="inputName === true" class="form-material form-control" formControlName="company_nameSp">
+                      <input *ngIf="inputName === false" maxlength="150" [class.is-invalid]="invalidNameSp" class="form-material form-control"
+                        type="text" formControlName="company_nameSp" required />
+                      <small *ngIf="invalidNameSp" class="text-danger">
+                        This field is requiered
+                      </small>
+                      <small class="text-danger" *ngIf="company.value.company_nameSp.length > 149">
+                        Only 250 Characters
+                      </small>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label> Image</label>
+                    <input maxlength="100" [class.is-invalid]="invalidImage" class="form-material form-control"
+                      type="text" formControlName="image" required />
+                    <small *ngIf="invalidImage" class="text-danger">
+                      Enter valid url
+                    </small>
+                    <small class="text-danger" *ngIf="company.value.image.length > 99">
+                      Only 100 Characters
+                    </small>
+                  </div>
+
+                  <div class="form-group">
+                    <label> Phone</label>
+                    <input maxlength="20" class="form-material form-control" type="text" formControlName="telephone"
+                      [class.is-invalid]="invalidPhone" required />
+                    <small *ngIf="invalidPhone" class="text-danger">
+                      escriba una direccion valida
+                    </small>
+                    <small class="text-danger" *ngIf="company.value.telephone.length > 19">
+                      Only 20 Characters
+                    </small>
+                  </div>
+
+                </div>
+                <div class="col-sm-6">
+                  <div *ngIf="company.value.image.length > 20" class="form-group container text-center">
+                    <h4>Image Selected</h4>
+                    <img src="{{
+                        company.value.image
+                      }}" height="40%" width="70%" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="container">
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label> Facebook</label>
+                    <input maxlength="50" [class.is-invalid]="invalidFacebook" class="form-material form-control"
+                      type="text" formControlName="facebook" required />
+                    <small *ngIf="invalidFacebook" class="text-danger">
+                      This field is requiered
+                    </small>
+                    <small class="text-danger" *ngIf="company.value.facebook.length > 49">
+                      Only 50 Characters
+                    </small>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label> Instagram</label>
+                    <input maxlength="50" [class.is-invalid]="invalidInstagram" class="form-material form-control"
+                      type="text" formControlName="instagram" required />
+                    <small *ngIf="invalidInstagram" class="text-danger">
+                      This field is requiered
+                    </small>
+                    <small class="text-danger" *ngIf="company.value.instagram.length > 49">
+                      Only 50 Characters
+                    </small>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col">
+                
+            <div class="container">
+              <div class="form-group">
+                <label> Ubication</label>
+                <input maxlength="250" [class.is-invalid]="invalidUbication" class="form-material form-control"
+                  type="text" formControlName="ubication" required />
+                <small *ngIf="invalidUbication" class="text-danger">
+                  This field is requiered
+                </small>
+                <small class="text-danger" *ngIf="company.value.ubication.length > 249">
+                  Only 250 Characters
+                </small>
+              </div>
+            </div>
+              </div>
+              <div class="col">
+                <div class="container">
+                  <div class="form-group">
+                    <label> Email</label>
+                    <input maxlength="100" [class.is-invalid]="invalidEmail" class="form-material form-control" type="text"
+                      formControlName="email" required />
+                    <small *ngIf="invalidEmail" class="text-danger">
+                      This field is requiered
+                    </small>
+                    <small class="text-danger" *ngIf="company.value.email.length > 99">
+                      Only 100 Characters
+                    </small>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+           
+
+            <input hidden formControlName="company_info_fk" />
+            <input hidden formControlName="languaje_category_fk" />
+
+            <div class="container">
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label> Direction in English</label>
+                    <textarea rows="4" maxlength="1000" class="form-material form-control" type="text" formControlName="directionEn"
+                      [class.is-invalid]="invalidDirectionEn" required></textarea>
+                    <small *ngIf="invalidDirectionEn" class="text-danger">
+                      This field is requiered
+                    </small>
+                    <small class="text-danger" *ngIf="company.value.directionEn.length > 999">
+                      Only 1000 Characters
+                    </small>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label> Direction in Spanish</label>
+                    <textarea rows="4" maxlength="1000" class="form-material form-control" type="text" formControlName="directionSp"
+                      [class.is-invalid]="invalidDirectionSp" required ></textarea>
+                    <small *ngIf="invalidDirectionSp" class="text-danger">
+                      This field is requiered
+                    </small>
+                    <small class="text-danger" *ngIf="company.value.directionSp.length > 999">
+                      Only 1000 Characters
+                    </small>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="container">
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label>
+                      Description in English
+                      <small>
+                        (Limit 1000 Characters -
+                        {{ company.value.descriptionEn.length }})
+                      </small>
+                    </label>
+                    <textarea rows="5" maxlength="1000" [class.is-invalid]="invalidDescriptionEn"
+                      class="form-material form-control" type="text" formControlName="descriptionEn"
+                      required></textarea>
+                    <small *ngIf="invalidDescriptionEn" class="text-danger">
+                      This field is requiered
+                    </small>
+                    <small class="text-danger" *ngIf="company.value.descriptionEn.length > 999">
+                      Only 1000 Characters
+                    </small>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label>
+                      Description in Spanish
+                      <small>
+                        (Limit 1000 Characters -
+                        {{ company.value.descriptionSp.length }})
+                      </small>
+                    </label>
+                    <textarea rows="5" maxlength="1000" [class.is-invalid]="invalidDescriptionSp"
+                      class="form-material form-control" type="text" formControlName="descriptionSp"
+                      required></textarea>
+                    <small *ngIf="invalidDescriptionSp" class="text-danger">
+                      This field is requiered
+                    </small>
+                    <small class="text-danger" *ngIf="company.value.descriptionSp.length > 999">
+                      Only 1000 Characters
+                    </small>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <hr />
+
+            <div class="container">
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label>
+                      Paragraph #1 in English
+                      <small>
+                        (Limit 1000 Characters -
+                        {{ company.value.paragraph1En.length }})
+                      </small>
+                    </label>
+                    <textarea rows="5" maxlength="1000" [class.is-invalid]="invalidParagraph1En"
+                      class="form-material form-control" type="text" formControlName="paragraph1En" required></textarea>
+                    <small *ngIf="invalidParagraph1En" class="text-danger">
+                      This field is requiered
+                    </small>
+                    <small class="text-danger" *ngIf="company.value.paragraph1En.length > 999">
+                      Only 1000 Characters
+                    </small>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label> Paragraph #1 in Spanish
+                      <small>
+                        (Limit 1000 Characters -
+                        {{ company.value.paragraph1Sp.length }})
+                      </small>
+                    </label>
+                    <textarea rows="5" maxlength="1000" [class.is-invalid]="invalidParagraph1Sp"
+                      class="form-material form-control" type="text" formControlName="paragraph1Sp" required></textarea>
+                    <small *ngIf="invalidParagraph1Sp" class="text-danger">
+                      This field is requiered
+                    </small>
+                    <small class="text-danger" *ngIf="company.value.paragraph1Sp.length > 999">
+                      Only 1000 Characters
+                    </small>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <hr>
+
+            <div class="container">
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label>
+                      Paragraph #2 in English
+                      <small>
+                        (Limit 1000 Characters -
+                        {{ company.value.paragraph2En.length }})
+                      </small>
+                    </label>
+                    <textarea rows="5" maxlength="1000" 
+                      class="form-material form-control" type="text" formControlName="paragraph2En" required></textarea>
+                    <small class="text-danger" *ngIf="company.value.paragraph2En.length > 999">
+                      Only 1000 Characters
+                    </small>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label> Paragraph #2 in Spanish
+                      <small>
+                        (Limit 1000 Characters -
+                        {{ company.value.paragraph2Sp.length }})
+                      </small>
+                    </label>
+                    <textarea rows="5" maxlength="1000"
+                      class="form-material form-control" type="text" formControlName="paragraph2Sp" required></textarea>
+                  
+                    <small class="text-danger" *ngIf="company.value.paragraph2Sp.length > 999">
+                      Only 1000 Characters
+                    </small>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <hr />
+
+            <div class="container">
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label>
+                      Paragraph #3 in English
+                      <small>
+                        (Limit 1000 Characters -
+                        {{ company.value.paragraph3En.length }})
+                      </small>
+                    </label>
+                    <textarea rows="5" maxlength="1000" [class.is-invalid]="invalidParagraph3En"
+                      class="form-material form-control" type="text" formControlName="paragraph3En" required></textarea>
+                    <small *ngIf="invalidParagraph3En" class="text-danger">
+                      This field is requiered
+                    </small>
+                    <small class="text-danger" *ngIf="company.value.paragraph3En.length > 999">
+                      Only 1000 Characters
+                    </small>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label> Paragraph #3 in Spanish
+                      <small>
+                        (Limit 1000 Characters -
+                        {{ company.value.paragraph3Sp.length }})
+                      </small>
+                    </label>
+                    <textarea rows="5" maxlength="1000" [class.is-invalid]="invalidParagraph3Sp"
+                      class="form-material form-control" type="text" formControlName="paragraph3Sp" required></textarea>
+                    <small *ngIf="invalidParagraph3Sp" class="text-danger">
+                      This field is requiered
+                    </small>
+                    <small class="text-danger" *ngIf="company.value.paragraph3Sp.length > 999">
+                      Only 1000 Characters
+                    </small>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <hr>
+
+            <div class="container">
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label>
+                      Paragraph #4 in English
+                      <small>
+                        (Limit 1000 Characters -
+                        {{ company.value.paragraph4En.length }})
+                      </small>
+                    </label>
+                    <textarea rows="5" maxlength="1000" [class.is-invalid]="invalidParagraph4En"
+                      class="form-material form-control" type="text" formControlName="paragraph4En" required></textarea>
+                    <small *ngIf="invalidParagraph4En" class="text-danger">
+                      This field is requiered
+                    </small>
+                    <small class="text-danger" *ngIf="company.value.paragraph4En.length > 999">
+                      Only 1000 Characters
+                    </small>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label> Paragraph #4 in Spanish
+                      <small>
+                        (Limit 1000 Characters -
+                        {{ company.value.paragraph4Sp.length }})
+                      </small>
+                    </label>
+                    <textarea rows="5" maxlength="1000" [class.is-invalid]="invalidParagraph4Sp"
+                      class="form-material form-control" type="text" formControlName="paragraph4Sp" required></textarea>
+                    <small *ngIf="invalidParagraph4Sp" class="text-danger">
+                      This field is requiered
+                    </small>
+                    <small class="text-danger" *ngIf="company.value.paragraph4Sp.length > 999">
+                      Only 1000 Characters
+                    </small>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <hr>
+
+            <div class="container">
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label>
+                      Paragraph #5 in English
+                      <small>
+                        (Limit 1000 Characters -
+                        {{ company.value.paragraph5En.length }})
+                      </small>
+                    </label>
+                    <textarea rows="5" maxlength="1000" [class.is-invalid]="invalidParagraph5En"
+                      class="form-material form-control" type="text" formControlName="paragraph5En" required></textarea>
+                    <small *ngIf="invalidParagraph5En" class="text-danger">
+                      This field is requiered
+                    </small>
+                    <small class="text-danger" *ngIf="company.value.paragraph5En.length > 999">
+                      Only 1000 Characters
+                    </small>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label> Paragraph #5 in Spanish
+                      <small>
+                        (Limit 1000 Characters -
+                        {{ company.value.paragraph5Sp.length }})
+                      </small>
+                    </label>
+                    <textarea rows="5" maxlength="1000" [class.is-invalid]="invalidParagraph5Sp"
+                      class="form-material form-control" type="text" formControlName="paragraph5Sp" required></textarea>
+                    <small *ngIf="invalidParagraph5Sp" class="text-danger">
+                      This field is requiered
+                    </small>
+                    <small class="text-danger" *ngIf="company.value.paragraph5Sp.length > 999">
+                      Only 1000 Characters
+                    </small>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- <hr>
+
+            <div class="container">
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label>
+                      Paragraph #6 in English
+                      <small>
+                        (Limit 1000 Characters -
+                        {{ company.value.paragraph6En.length }})
+                      </small>
+                    </label>
+                    <textarea rows="5" maxlength="1000" [class.is-invalid]="invalidParagraph6En"
+                      class="form-material form-control" type="text" formControlName="paragraph6En" required></textarea>
+                    <small *ngIf="invalidParagraph6En" class="text-danger">
+                      This field is requiered
+                    </small>
+                    <small class="text-danger" *ngIf="company.value.paragraph6En.length > 999">
+                      Only 1000 Characters
+                    </small>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label> Paragraph #6 in Spanish
+                      <small>
+                        (Limit 1000 Characters -
+                        {{ company.value.paragraph6Sp.length }})
+                      </small>
+                    </label>
+                    <textarea rows="5" maxlength="1000" [class.is-invalid]="invalidParagraph6Sp"
+                      class="form-material form-control" type="text" formControlName="paragraph6Sp" required></textarea>
+                    <small *ngIf="invalidParagraph6Sp" class="text-danger">
+                      This field is requiered
+                    </small>
+                    <small class="text-danger" *ngIf="company.value.paragraph6Sp.length > 999">
+                      Only 1000 Characters
+                    </small>
+                  </div>
+                </div>
+              </div>
+            </div> -->
+
+            <!-- <hr>
+
+            <div class="container">
+              <div class="row">
+                <div class="col-sm-5">
+                  <div class="form-group">
+                    <label> Image #1</label>
+                    <input class="form-material form-control" type="text" formControlName="image1" required />
+                  </div>
+                </div>
+                <div class="col-sm-7">
+                  <div *ngIf="company.value.image1.length > 20" class="form-group container text-center">
+                    <h4>Image Selected</h4>
+                    <img src="{{
+                        company.value.image1
+                      }}" height="40%" width="70%" />
+                  </div>
+                </div>
+              </div>
+            </div> -->
+
+            <!-- <div class="container">
+              <div class="row">
+                <div class="col-sm-5">
+                  <div class="form-group">
+                    <label> Image #2</label>
+                    <input class="form-material form-control" type="text" formControlName="image2" required />
+                  </div>
+                </div>
+                <div class="col-sm-7">
+                  <div *ngIf="company.value.image2.length > 20" class="form-group container text-center">
+                    <h4>Image Selected</h4>
+                    <img src="{{
+                        company.value.image2
+                      }}" height="40%" width="70%" />
+                  </div>
+                </div>
+              </div>
+            </div> -->
+
+            <div class="container">
+              <div class="form-group">
+                <div *ngIf="button === 1" class="container col-7">
+                  <button type="submit" class="btn btn-success btn-block fas">
+                    SAVE <i class="fas fa-user-plus"></i>
+                  </button>
+                </div>
+                <div *ngIf="button === 2" class="container col-7">
+                  <button type="submit" class="btn btn-warning btn-block fas">
+                    UPDATE <i class="fas fa-user-edit"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

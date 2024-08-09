@@ -1,0 +1,19 @@
+<br>
+<div id="titulo">
+  <p *ngIf="languajeID == 1">Photo Gallery</p>
+  <p *ngIf="languajeID == 2">Galería de Fotos</p>
+</div>
+<div class="container">
+<div class="card-columns "  >
+  <div class="card  rounded" *ngFor="let item of imagesData">
+    <div class="container text-center">
+      <img class="card-image"
+         id="imagenRenderizar"  src="{{ item.url }}" 
+           alt="Imagenes de nuestra estrategia ">
+           
+    </div>
+    
+    
+    </div>
+  </div>
+</div>

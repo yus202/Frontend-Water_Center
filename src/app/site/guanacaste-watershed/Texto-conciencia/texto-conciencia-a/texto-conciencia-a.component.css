@@ -1,0 +1,17 @@
+#ContainerConciencia{
+    overflow: hidden;
+    width: auto;
+    align-items: center;
+    height: auto;
+  }
+  #Titulo_wtd{
+    text-align: justify;
+  }
+  #Titulo_wtd>h1{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 30px;
+    color: #774F38;
+    text-align: center;
+  }
+  /*btn*/
+  

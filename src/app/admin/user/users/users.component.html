@@ -1,0 +1,70 @@
+<div class="row animated fadeIn">
+    <div class="col-12">
+       
+    </div>
+</div>
+
+<div class="row animated fadeIn" *ngIf="cargando">
+
+    <div class="col-sm-12">
+
+        <div class="alert alert-warning text-center">
+            <strong>Loading ...</strong>
+            <br>
+            <i class="fa fa-refresh fa-spin fa-2x"></i>
+            <br>
+            <span>Wait a Moment</span>
+        </div>
+    </div>
+</div>
+
+
+<div class="row animated fadeIn" *ngIf="!cargando">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col text-left">
+                            <h3 class="card-title">Users ( <small>{{ totalRegistros }}</small> )</h3>
+                        </div>
+                        <div class="col text-right">
+                            <a [routerLink]="[ '/admin/new/user' ]" type="button" class="btn btn-success"><i class="fas fa-plus"></i> Add</a>
+                        </div>
+                    </div>
+                </div>
+
+
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Image</th>
+                            <th>Email</th>
+                            <th>Name</th>
+                            <th>Detele</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr *ngFor="let item of users">
+                            <td class="w70">
+                                <img src="{{
+                                    item.image
+                                  }}" width="100px" height="100px" />
+                            </td>
+                            <td>{{ item.email }}</td>
+                            <td>{{ item.name }}</td>
+                            <td> 
+                                <i (click)="delete(item)" class="pointer fas fa-trash-alt"></i>
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>

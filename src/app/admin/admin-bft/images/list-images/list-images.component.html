@@ -1,0 +1,56 @@
+
+<div class="row animated fadeIn">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+  
+          <div class="text-right">
+            <button [routerLink]="[ '/admin/new/bft/image/new' ]"
+              class="btn waves-effect waves-light btn-rounded btn-primary">
+              <i class="fa fa-plus"></i>
+              Add
+            </button>
+          </div>
+  
+         <table *ngIf="!load && bftImage.length > 0" class="table table-hover">  
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Image</th>
+                <th class="text-center" scope="col">Delete</th>
+                <th class="text-center" scope="col">Edit</th>
+              </tr>
+            </thead>
+            <tbody>
+               <tr *ngFor="let item of bftImage; let i = index">
+                <th scope="row"> {{ i + 1 }}</th>
+                <td>
+                  <img class="rounded" src="{{item.image}}" width="100px" height="100px" alt="carrousel image"></td>
+                
+                <td  class="text-center"><i (click)="delete( item )" class="cursor fas fa-trash-alt"></i></td>
+  
+                <td  class="text-center"><i [routerLink]="['/admin/new/bft/image', item.id ]" class="cursor fas fa-edit"></i></td>
+              </tr>  
+            </tbody>
+          </table> 
+  
+          <div *ngIf="!load && bftImage.length === 0">
+            <div class="alert alert-warning text-center mt-3">
+              <h4 class="alert-heading">No records</h4>
+              <p><i class="fas fa-exclamation fa-2x"></i></p>
+            </div>
+          </div>
+  
+          <div *ngIf="load">
+            <div class="alert alert-info text-center mt-3">
+              <h4 class="alert-heading">load</h4>
+              <p><i class="fas fa-sync-alt fa-spin fa-2x"></i></p>
+              <p class="mb-0">Wait a moment</p>
+            </div>
+          </div>
+  
+        </div>
+      </div>
+    </div>
+  </div>
+  

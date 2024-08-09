@@ -1,0 +1,139 @@
+<aside class="left-sidebar" >
+    <!-- Sidebar scroll-->
+    <div class="scroll-sidear">
+        <!-- Sidebar navigation-->
+        <nav class="sidebar-nav">
+            <ul id="sidebarnav" class="scrolling">
+                
+                <br>
+                
+                <ul class="user-profile">
+                    <a class=" waves-dark" [routerLink]="[ '/admin/user/profile', id ]" aria-expanded="false">
+                        <img class="ml-1" src="{{image}}" width="80px" height="32px"  alt="image"/>
+                        <span style="text-decoration:none" class=" text-capitalize"> <strong class="hide-menu">{{ name }}</strong> </span>
+                    </a>
+                    <ul class="hide-menu" >
+                        <li><a [routerLink]="[ '/admin/user/profile' ]" routerLinkActive="active">My Profile </a></li>
+                        <li><a [routerLink]="[ '/admin/user/list' ]" routerLinkActive="active">Users</a></li>
+                        <li><a [routerLink]="[ '/admin/account-settings' ]" routerLinkActive="active">Account Setting</a></li>
+                        <li><a (click)="logout()" href="javascript:void()" class="pointer">Logout</a></li>
+                    </ul>
+                </ul> 
+
+                <li class="nav-devider"></li>
+
+                <ul class="user-profile">
+                    <a class=" waves-dark" [routerLink]="[ '/admin/dashboard' ]" aria-expanded="false">
+                        <span style="text-decoration:none" class=" text-capitalize"> <strong class="ml-5 hide-menu">Dashboard</strong>&nbsp;<i class="fas fa-tools 2x"></i> </span>
+                    </a>
+                </ul>
+
+                <li class="nav-devider"></li>
+                
+                <ul class="user-profile">
+                    <a class=" waves-dark" [routerLink]="[ 'events' ]" aria-expanded="false">
+                        <span style="text-decoration:none" class=" text-capitalize"> <strong class="ml-5 hide-menu">Events</strong>&nbsp;<i class="fas fa-tools 2x"></i> </span>
+                    </a>
+                    
+                    <ul class="hide-menu" >
+                        <li><a [routerLink]="[ '/admin/groups-units' ]" routerLinkActive="active">Groups & Units</a></li>
+                    </ul>
+                </ul>
+
+                <li class="nav-devider"></li>
+
+                <ul class="user-profile">
+                    <a class=" waves-dark" [routerLink]="[ '/admin/dashboard' ]" aria-expanded="false">
+                        <span style="text-decoration:none" class=" text-capitalize"> <strong class="ml-5 hide-menu">About Us</strong>&nbsp;<i class="fas fa-tools 2x"></i> </span>
+                    </a>
+                    <ul class="hide-menu" >
+                        <li><a [routerLink]="[ '/admin/list/board/directors' ]" routerLinkActive="active">Board Director </a></li>
+                        <li><a [routerLink]="[ '/admin/list/lidership' ]" routerLinkActive="active">Lidership</a></li>
+                        <li><a [routerLink]="[ '/admin/list/partner/organization' ]" routerLinkActive="active">Partner Organization</a></li>
+                        <li><a [routerLink]="[ '/admin/list/donate' ]" routerLinkActive="active">Donate</a></li>
+                    </ul>
+                </ul> 
+
+                <li class="nav-devider"></li>
+
+                <ul class="user-profile">
+                    <a class=" waves-dark" [routerLink]="[ '/admin/dashboard' ]" aria-expanded="false">
+                        <span class=" text-capitalize"> <strong  class="ml-5 hide-menu">BFT</strong>&nbsp;<i class="fas fa-tools 2x"></i> </span>
+                    </a>
+                    <ul class="hide-menu" >
+                        <li><a [routerLink]="[ '/admin/list/point/sale' ]" routerLinkActive="active">Point Sale</a></li>
+                        <li><a [routerLink]="[ '/admin/list/affiliate' ]" routerLinkActive="active">Affiliates</a></li>
+                        <li><a [routerLink]="[ '/admin/list/bft/images' ]" routerLinkActive="active">Images</a></li>
+                    </ul>
+                </ul> 
+
+                <li class="nav-devider"></li>
+
+                <ul class="user-profile">
+                    <a class=" waves-dark" [routerLink]="[ '/admin/dashboard' ]" aria-expanded="false">
+                        <span class=" text-capitalize"> <strong  class="ml-5 hide-menu">Home</strong>&nbsp;<i class="fas fa-tools 2x"></i> </span>
+                    </a>
+                    <ul class="hide-menu" >
+                        <li><a [routerLink]="[ '/admin/list/product/service' ]" routerLinkActive="active">Product and Service</a></li>
+                        <li><a [routerLink]="[ '/admin/list/carousel' ]" routerLinkActive="active">Carousel Images</a></li>
+                    </ul>
+                </ul> 
+
+                <li class="nav-devider"></li>
+
+                <ul class="user-profile">
+                    <a class=" waves-dark" [routerLink]="[ '/admin/dashboard' ]" aria-expanded="false">
+                        <span class=" text-capitalize"> <strong  class="ml-5 hide-menu">Programs</strong>&nbsp;<i class="fas fa-tools 2x"></i> </span>
+                    </a>
+                    <ul class="hide-menu" >
+                        <li><a [routerLink]="[ 'admin/list/programs' ]" routerLinkActive="active">Programs</a></li>
+                    </ul>
+                </ul> 
+
+                <li class="nav-devider"></li>
+
+                <ul class="user-profile">
+                    <a class=" waves-dark" [routerLink]="[ '/admin/dashboard' ]" aria-expanded="false">
+                        <span class=" text-capitalize"> <strong  class="ml-5 hide-menu">Media</strong>&nbsp;<i class="fas fa-tools 2x"></i> </span>
+                    </a>
+                    <ul class="hide-menu" >
+                        <li><a [routerLink]="[ '/admin/list/media' ]" routerLinkActive="active">Images</a></li>
+                        <!-- <li><a [routerLink]="[ '/admin/list/type/media' ]" routerLinkActive="active">Type of Media</a></li> -->
+                    </ul>
+                </ul> 
+
+                <li class="nav-devider"></li>
+
+                <ul class="user-profile">
+                    <a class=" waves-dark" [routerLink]="[ '/admin/dashboard' ]" aria-expanded="false">
+                        <span class=" text-capitalize"> <strong  class="ml-5 hide-menu">Strategy</strong>&nbsp;<i class="fas fa-tools 2x"></i> </span>
+                    </a>
+                    <ul class="hide-menu" >
+                        <li><a [routerLink]="[ '/admin/strategies' ]" routerLinkActive="active">Our Strategy</a></li>
+                    </ul>
+                    
+                </ul> 
+
+                <li class="nav-devider"></li>
+
+                <ul class="user-profile">
+                    <a class=" waves-dark" [routerLink]="[ '/admin/dashboard' ]" aria-expanded="false">
+                        <span class=" text-capitalize"> <strong  class="ml-5 hide-menu">Company Info</strong>&nbsp;<i class="fas fa-tools 2x"></i> </span>
+                    </a>
+                    <ul class="hide-menu" >
+                        <li><a [routerLink]="[ '/admin/list/company' ]" routerLinkActive="active">Companies</a></li>
+                    </ul>
+                    
+                </ul> 
+
+                <br>
+                <br>
+                <br>
+                <br>
+
+            </ul>
+        </nav>
+        <!-- End Sidebar navigation -->
+    </div>
+    <!-- End Sidebar scroll-->
+</aside>

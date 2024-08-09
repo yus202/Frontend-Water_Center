@@ -1,0 +1,10 @@
+<ul *ngFor="let result of units">{{result.quantity}} &nbsp; {{result.unit_name}}</ul>
+<div *ngIf="units?.length == 0">
+    <p *ngIf="languageID == 1">
+        No results
+    </p>
+
+    <p *ngIf="languageID == 2">
+        Sin resultados
+    </p>
+</div>

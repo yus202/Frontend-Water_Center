@@ -1,0 +1,50 @@
+<div class="container-fluid">
+  <div id="title-container" class="col-md-12 col-xl-12">
+    <h1 id="event-title" *ngIf="languageID == 1">Next events</h1>
+    <h1 id="event-title" *ngIf="languageID == 2">Próximos eventos</h1>
+    <hr color="#774F38" />
+  </div>
+  <div class="container col-md-8 col-xl-8 col-sm-12">
+    <swiper
+      [slidesPerView]="1"
+      [spaceBetween]="20"
+      [autoplay]="{ delay: 10000 }"
+      [navigation]="true"
+    >
+      <ng-template *ngFor="let event of events" swiperSlide>
+        <div class="card">
+          <div class="card-header">
+            <div class="row">
+              <div class="col-sm-6 col-xl-9">
+                <h2 class="data-event">{{ event.name }}</h2>
+              </div>
+              <div class="col-sm-6 col-xl-3">
+                <p id="subtitle-h4" class="text-center">
+                  <i class="fas fa-calendar-day"></i> {{ event.date | date: "mediumDate" }}
+                </p>
+                <p id="subtitle-h4" class="text-center">
+                  <i class="far fa-clock"></i> {{ event.date | date: "shortTime" }}
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <p class="card-text text-center"> 
+              <i class="fas fa-align-center"></i> {{ event.description }} 
+            </p>
+            <div class="wrapper">
+              <div class="divider div-transparent"></div>
+            </div>
+            <p>
+              <i id="subtitle-h4" style="color: rgb(88, 88, 88);"class="far fa-hiking"></i> 
+              {{ event.equipment }} 
+            </p>
+          </div>
+          <div class="card-footer">
+            <p id="subtitle-h6" class="data-event"> <i class="fas fa-map-marker-alt"></i> {{ event.location }}</p>
+          </div>
+        </div>
+      </ng-template>
+    </swiper>
+  </div>
+</div>

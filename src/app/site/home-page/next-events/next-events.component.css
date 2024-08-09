@@ -1,0 +1,80 @@
+#title-container{
+    color: #774f38;
+    align-items: center;
+    text-align: center;
+}
+
+.swiper-container{
+    position: static;
+}
+
+#subtitle-h6{
+    font-size: 14pt;
+    font-weight: normal;
+    color: rgb(88, 88, 88);
+}
+
+#subtitle-h4{
+    font-size: 16pt;
+    font-weight: normal;
+    color: rgb(88, 88, 88);
+}
+
+h1{
+    color: #774f38;
+}
+
+.container-fluid{
+    background-color: rgb(240, 240, 240);
+}
+
+.card{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 10px;
+    margin: 20px;
+}
+
+#date{
+    text-align: right;
+}
+
+@media only screen and (max-width:500px) {
+    /* For mobile phones: */
+    h1{
+        font-size: 25px;
+    }
+    h2{
+        font-size: 25px;
+    }
+}
+
+@media only screen and (max-width:675px) {
+    /* For mobile phones: */
+    .data-event{
+        text-align: center;
+    }
+}
+
+.wrapper
+{
+  padding-bottom: 5px;
+}
+
+.divider
+{
+  position: relative;
+  margin-top: 5px;
+  height: 1px;
+}
+
+.div-transparent:before
+{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 5%;
+  right: 5%;
+  width: 90%;
+  height: 1px;
+  background-image: linear-gradient(to right, transparent, #0D8E95, transparent);
+}

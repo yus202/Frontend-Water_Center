@@ -1,0 +1,60 @@
+<div class="row animated fadeIn">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+          <div class="text-right">
+            <button [routerLink]="['/admin/list/bft/images']"
+              class="btn waves-effect waves-light btn-rounded btn-primary">
+              <i class="fas fa-arrow-alt-circle-left"></i>
+              Back
+            </button>
+          </div>
+  
+          <div class="container">
+            <form #form="ngForm" [formGroup]="bftImage" (ngSubmit)="ngSubmit()" autocomplete="off">
+                
+              <input hidden formControlName="id" />
+  
+
+              <div class="container">
+                <div class="row">
+                  <div class="col-sm-8">
+                    <div class="form-group">
+                      <label>Image</label>
+                      <input maxlength="250" class="form-material form-control" type="text" formControlName="image" required />
+                      <small *ngIf="invalidImage" class="text-danger">
+                        This field is requiered
+                      </small>
+                      <small class="text-danger" *ngIf="bftImage.value.image.length > 249">
+                        Only 250 Characters
+                      </small>
+                    </div>
+                  </div>
+                  <div class="col-sm-4 text-center">
+                    <h4>Image</h4>
+                    <div *ngIf="bftImage.value.image.length > 20" class="form-group container text-center">
+                      <img class="rounded" src="{{bftImage.value.image}}" height="60%" width="90%">
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+  
+              <div class="form-group">
+                <div *ngIf="button === 1" class="container col-7">
+                  <button type="submit" [disabled]="bftImage.invalid" class="btn btn-success btn-block fas">
+                    SAVE <i class="fas fa-user-plus"></i>
+                  </button>
+                </div>
+                <div *ngIf="button === 2" class="container col-7">
+                  <button type="submit" [disabled]="bftImage.invalid" class="btn btn-warning btn-block fas">
+                    UPDATE <i class="fas fa-user-edit"></i>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,136 @@
+<div class="row animated fadeIn">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="card">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-sm-8">
+                <form
+                  #form="ngForm"
+                  [formGroup]="user"
+                  (ngSubmit)="ngSubmit()"
+                  class="form p-t-20"
+                >
+                  <input hidden formControlName="id" type="text" />
+
+                  <div class="form-group">
+                    <label for="exampleInputuname">User Name</label>
+                    <div class="input-group">
+                      <div class="input-group-addon">
+                        <i class="ti-user"></i>
+                      </div>
+                      <input
+                        maxlength="22"
+                        [class.is-invalid]="invalidName"
+                        formControlName="name"
+                        type="text"
+                        class="form-control"
+                        placeholder="User Name"
+                        required
+                      />
+                    </div>
+                    <small *ngIf="invalidName" class="text-danger">
+                      This field is requiered
+                    </small>
+                    <small
+                      class="text-danger"
+                      *ngIf="user.value.name.length > 21"
+                    >
+                      Only 22 Characters
+                    </small>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Email Address</label>
+                    <div class="input-group">
+                      <div class="input-group-addon">
+                        <i class="ti-email"></i>
+                      </div>
+                      <input
+                        maxlength="250"
+                        [class.is-invalid]="invalidEmail"
+                        class="form-control"
+                        formControlName="email"
+                        type="email"
+                        required
+                        placeholder="Email Address"
+                      />
+                    </div>
+                    <small *ngIf="invalidEmail" class="text-danger">
+                      This field is requiered
+                    </small>
+                    <small
+                      class="text-danger"
+                      *ngIf="user.value.email.length > 249"
+                    >
+                      Only 250 Characters
+                    </small>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Image ID</label>
+                    <div class="input-group">
+                      <div class="input-group-addon">
+                        <i class="fas fa-image"></i>
+                      </div>
+                      <input
+                        maxlength="250"
+                        [class.is-invalid]="invalidImage"
+                        class="form-control"
+                        formControlName="image"
+                        type="text"
+                        required
+                        placeholder="Image ID"
+                      />
+                    </div>
+                    <small *ngIf="invalidImage" class="text-danger">
+                      This field is requiered
+                    </small>
+                    <small
+                      class="text-danger"
+                      *ngIf="user.value.image.length > 249"
+                    >
+                      Only 250 Characters
+                    </small>
+                  </div>
+
+                  <div class="container text-center">
+                    <button
+                      type="submit"
+                      class="
+                        col-sm-6
+                        btn btn-warning
+                        waves-effect waves-light
+                        m-r-10
+                      "
+                    >
+                      UPDATE <i class="fas fa-user-edit"></i>
+                    </button>
+                  </div>
+                </form>
+              </div>
+              <div class="col-sm-4 mt-4">
+                <div class="container text-center">
+                  <h4>Image Selected</h4>
+                  <div
+                    *ngIf="user.value.image.length > 32"
+                    class="form-group container text-center"
+                  >
+                    <img
+                      src="{{
+                        user.value.image
+                      }}"
+                      height="60%"
+                      width="80%"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

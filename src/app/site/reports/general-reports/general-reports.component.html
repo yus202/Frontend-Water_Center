@@ -1,0 +1,138 @@
+<div class="container-fluid">
+  <div id="reports-container" class="container col-11">
+    <form class="form-inline">
+      <div class="form-group hidden">
+        <div class="input-group">
+          <input name="datepicker"
+                 class="form-control"
+                 ngbDatepicker
+                 #datepicker="ngbDatepicker"
+                 [autoClose]="'outside'"
+                 (dateSelect)="onDateSelection($event)"
+                 [displayMonths]="2"
+                 [dayTemplate]="t"
+                 outsideDays="hidden"
+                 [startDate]="fromDate!"
+                 tabindex="-1">
+          <ng-template #t let-date let-focused="focused">
+            <span class="custom-day"
+                  [class.focused]="focused"
+                  [class.range]="isRange(date)"
+                  [class.faded]="isHovered(date) || isInside(date)"
+                  (mouseenter)="hoveredDate = date"
+                  (mouseleave)="hoveredDate = null">
+              {{ date.day }}
+            </span>
+          </ng-template>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="input-group">
+          <input #dpFromDate
+                 class="form-control" placeholder="yyyy-mm-dd"
+                 name="dpFromDate"
+                 [value]="formatter.format(fromDate)"
+                 (input)="fromDate = validateInput(fromDate, dpFromDate.value)">
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary calendar" (click)="datepicker.toggle()" type="button"><i class="far fa-calendar-alt"></i></button>
+          </div>
+        </div>
+      </div>
+      <div class="form-group ml-md-2">
+        <div class="input-group">
+          <input #dpToDate
+                 class="form-control" placeholder="yyyy-mm-dd"
+                 name="dpToDate"
+                 [value]="formatter.format(toDate)"
+                 (input)="toDate = validateInput(toDate, dpToDate.value)">
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary calendar" (click)="datepicker.toggle()" type="button"><i class="far fa-calendar-alt"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <select (change) = "setProgramVariable($event)" class="col-sm-12 ml-md-2" id="projects" name="dropdown">
+          <option *ngIf="languageID == 1" value="%" selected>All programs</option>
+          <option *ngIf="languageID == 2" value="%" selected>Todos los programas</option>
+          <option *ngFor="let program of programs" value="{{program.name}}">{{program.name}}</option>
+        </select>
+      </div>
+
+      <div>
+        <select (change) = "setGroupVariable($event)" class="col-sm-12 ml-md-2" id="groups" name="dropdown">
+          <option *ngIf="languageID == 2" value="%" selected>Todos los grupos</option>
+          <option *ngIf="languageID == 1" value="%" selected>All groups</option>
+          <option *ngFor="let group of groups" value="{{group.name}}">{{group.name}}</option>
+        </select>
+      </div>
+
+      <button (click) = "generateReport()" *ngIf="languageID == 1" id="generate-btn" type="button" class="btn btn-info">Generate report</button>
+
+      <button (click) = "generateReport()" *ngIf="languageID == 2" id="generate-btn" type="button" class="btn btn-info">Generar reporte</button>
+
+    </form>
+
+    <div id="report-results" class="mt-5">
+
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <!--Date-->
+          <th *ngIf="languageID == 1" scope="col">Date</th>
+          <th *ngIf="languageID == 2" scope="col">Fecha</th>
+          <!--Program-->
+          <th *ngIf="languageID == 1" scope="col">Program</th>
+          <th *ngIf="languageID == 2" scope="col">Programa</th>
+          <!--Group-->
+          <th *ngIf="languageID == 1" scope="col">Group</th>
+          <th *ngIf="languageID == 2" scope="col">Grupo</th>
+          <!--Results-->
+          <th *ngIf="languageID == 1" scope="col">Results</th>
+          <th *ngIf="languageID == 2" scope="col">Resultados</th>
+          <!--Notes-->
+          <th *ngIf="languageID == 1" scope="col">Notes</th>
+          <th *ngIf="languageID == 2" scope="col">Notas</th>
+        </tr>
+        </thead>
+        <tbody *ngIf="reportsResult || reportsResult?.length != 0">
+        <tr *ngFor="let report of reportsResult">
+          <th>
+            {{report.date | date:'mediumDate'}}
+          </th>
+
+          <th>
+            {{report.name}}
+          </th>
+
+          <th>
+            {{report.group_quantity}}
+            {{report.group_name}}
+          </th>
+
+          <th>
+            <app-report-results [eventID]="report.event_id" [languageID]="languageID"></app-report-results>
+          </th>
+          
+          <th>
+            {{report.notes}}
+          </th>
+          
+        </tr>
+        </tbody>
+      </table>
+
+      <div *ngIf="languageID == 2" class="container col-11" style="text-align: center;" >
+        <p *ngIf="!reportsResult">Selecciona algunos parámetros....</p>
+        <p *ngIf="reportsResult?.length == 0">Actividades no encontradas con tus parámetros....</p>
+      </div>
+
+      <div *ngIf="languageID == 1" class="container col-11" style="text-align: center;" >
+        <p *ngIf="!reportsResult">Select some parameters....</p>
+        <p *ngIf="reportsResult?.length == 0">No actitvities found with your parameters....</p>
+      </div>
+
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,18 @@
+
+.title{
+    color: #774F38;
+}
+
+.btn{
+    background-color: #0D8E95;
+}
+.donate-container{
+    position: -webkit-sticky; 
+    position: sticky;
+    top: 85px; 
+    bottom: 200px;
+}
+.container-hidden{
+    height: 4px;
+    z-index: 4;
+}

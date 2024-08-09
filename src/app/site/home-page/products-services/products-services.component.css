@@ -1,0 +1,52 @@
+#products-services-list > hr {
+  margin-bottom: 30px;
+}
+
+#subtitle-h4{
+  font-size: 16pt;
+  font-weight: normal;
+  color: rgb(88, 88, 88);
+}
+
+#products-services-list > h1 {
+  text-align: center;
+  color: #774f38;
+}
+
+.container-fluid {
+  background-color: rgb(240, 240, 240);
+}
+
+.row {
+  justify-content: center;
+}
+.card {
+  margin-right: 25px;
+  margin-left: 25px;
+  width: 17rem;
+}
+
+.btn {
+  background-color: #0d8e95;
+  border-color: #0d8e95;
+  font-weight: bold;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 10px;
+}
+
+@media only screen and (max-width: 500px) {
+  /* For mobile phones: */
+  h1 {
+    font-size: 25px;
+  }
+
+  .card {
+    width: 20rem;
+  }
+}
+
+
+

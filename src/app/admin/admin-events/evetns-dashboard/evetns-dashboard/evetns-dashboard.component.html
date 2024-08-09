@@ -1,0 +1,38 @@
+<div id="eventsList" class="col-12">
+
+    <div class="row">
+      <h2 class="col-10">Next events list</h2>
+      <button class="mb-2 btn btn-success btn-block col-2" [routerLink]="[ '/events/create' ]" >
+          Add event
+      </button>
+    </div>
+
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">Date</th>
+          <th scope="col">Program</th>
+          <th scope="col">Description</th>
+          <th scope="col">What to take?</th>
+          <th scope="col">Location</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of events">
+          <th scope="row">{{item.date | date:'medium'}}</th>
+          <td>{{item.name}}</td>
+          <td>{{item.description}}</td>
+          <td>{{item.equipment}}</td>
+          <td>{{item.location}}</td>
+          <td> 
+            <i (click)="deleteEventGroupAndUnit(item.event_id)" class="pointer fas fa-trash-alt"></i>
+            <i [routerLink]="['/events/update', item.event_id]"class="pointer fas fa-edit ml-2"></i> 
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  
+  </div>
+  
+  

@@ -1,0 +1,36 @@
+<div class="container mt-5 ">
+    <div class="row ">
+        <div class="col-xl-12 col-sm-12 ">
+            <div class="col container mb-3">
+                <div class="mt-5">
+                    <h1 class="title" *ngIf="languageID ==1">GWC Partner Organization</h1>
+                    <h1 id="sizetitle" class="title" *ngIf="languageID ==2">Organizaciones Compañeras</h1>
+                    <hr color="#774F38" />
+                </div>
+            </div>
+            <div *ngFor="let item of OrganizationData" class="col">
+
+                <div class=" shadow rounded mt-5">
+                    <h5 *ngIf="languageID == 1" class="card-header text-center"> {{ item.nameEn }} </h5>
+                    <h5 *ngIf="languageID == 2" class="card-header text-center"> {{ item.nameSp }} </h5>
+                    <div class="card-body card_back">
+                        <div class="row">
+                            <div class="col-sm-8">
+                                <p class="card-text text-justify"> {{ item.description }} </p>
+                            </div>
+                            <div class="col-sm-4 marin_img_card">
+                                <img src="{{item.logo}}" height="80%" class="card-img mt-3 rounded" alt="... ">
+                                <div  class="text-right mt-2">
+                                    <a  *ngIf="languageID == 1" [href]="item.url_site" target="_blank" class="btn btn-outline-info  ">Visit site</a>
+                                    <a *ngIf="languageID == 2"  [href]="item.url_site" target="_blank" class="btn btn-outline-info ">visitar sitio</a>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

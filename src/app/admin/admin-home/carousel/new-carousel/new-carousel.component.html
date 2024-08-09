@@ -1,0 +1,93 @@
+<div class="row animated fadeIn">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+        <div class="text-right">
+          <button [routerLink]="['/admin/list/carousel']" class="btn waves-effect waves-light btn-rounded btn-primary">
+            <i class="fas fa-arrow-alt-circle-left"></i>
+            Back
+          </button>
+        </div>
+
+        <div class="container">
+          <form #form="ngForm" [formGroup]="carousel" (ngSubmit)="ngSubmit()" autocomplete="off">
+            <input hidden formControlName="id" />
+
+            <div class="container">
+              <div class="row">
+                <div class="col-sm-8">
+                  <div class="form-group">
+                    <label>Image</label>
+                    <input maxlength="250" [class.is-invalid]="invalidImage" class="form-material form-control"
+                      type="text" formControlName="image" required />
+                    <small *ngIf="invalidImage" class="text-danger">
+                      This field is required
+                    </small>
+                    <small class="text-danger" *ngIf="carousel.value.image.length > 249">
+                      Only 250 Characters
+                    </small>
+                  </div>
+                  <div class="form-group">
+                    <label> English message
+                      <small>
+                        (Limit 250 Characters -
+                        {{ carousel.value.messageEn.length }})
+                      </small>
+                    </label>
+                    <textarea maxlength="250" class="form-material form-control" type="text" formControlName="messageEn"
+                      [class.is-invalid]="invalidMessageEn" required></textarea>
+                    <small *ngIf="invalidMessageEn" class="text-danger">
+                      This field is required
+                    </small>
+                    <small class="text-danger" *ngIf="carousel.value.messageEn.length > 249">
+                      Only 250 Characters
+                    </small>
+                  </div>
+                  <div class="form-group">
+                    <label> Spanish message
+                      <small>
+                        (Limit 250 Characters -
+                        {{ carousel.value.messageSp.length }})
+                      </small>
+                    </label>
+                    <textarea maxlength="250" class="form-material form-control" type="text" formControlName="messageSp"
+                      [class.is-invalid]="invalidMessageSp" required></textarea>
+                    <small *ngIf="invalidMessageSp" class="text-danger">
+                      This field is required
+                    </small>
+                    <small class="text-danger" *ngIf="carousel.value.messageSp.length > 249">
+                      Only 250 Characters
+                    </small>
+                  </div>
+                </div>
+                <div class="col-sm-4 text-center">
+                  <h4>Image</h4>
+                  <div *ngIf="carousel.value.image.length > 20" class="form-group container text-center">
+                    <img  class="rounded" src="{{carousel.value.image}}"
+                      alt="carrousel image">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <input hidden formControlName="carousel_fk" />
+            <input hidden formControlName="languaje_c_category_fk" />
+
+            <div class="form-group">
+              <div *ngIf="button === 1" class="container col-7">
+                <button type="submit" [disabled]="carousel.invalid" class="btn btn-success btn-block fas">
+                  SAVE <i class="fas fa-plus"></i>
+                </button>
+              </div>
+              <div *ngIf="button === 2" class="container col-7">
+                <button type="submit" [disabled]="carousel.invalid" class="btn btn-warning btn-block fas">
+                  UPDATE <i class="fas fa-pencil-alt"></i>
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

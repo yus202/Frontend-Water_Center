@@ -1,0 +1,182 @@
+<div class="row animated fadeIn">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+        <div class="text-right">
+          <button [routerLink]="['/admin/list/lidership']" class="btn waves-effect waves-light btn-rounded btn-primary">
+            <i class="fas fa-arrow-alt-circle-left"></i>
+            Back
+          </button>
+        </div>
+
+        <div class="container">
+          <form #form="ngForm" [formGroup]="lider" (ngSubmit)="onSubmit()" autocomplete="off">
+
+
+            <div class="container">
+              <div class="row">
+                <div class="col-sm-8">
+                  <div class="form-group">
+                    <label>Image</label>
+                    <input maxlength="250" class="form-material form-control" formControlName="image"
+                      [class.is-invalid]="invalidImage" type="text" required />
+                    <small *ngIf="invalidImage" class="text-danger">
+                      This field is requiered
+                    </small>
+                    <small class="text-danger" *ngIf="lider.value.image.length > 249">
+                      Limit is 250 Characters
+                    </small>
+                  </div>
+                  <div class="form-group">
+                    <label> Lider Name</label><br />
+                    <input maxlength="75" [class.is-invalid]="invalidName" formControlName="name"
+                      class="form-material form-control" required />
+                    <small *ngIf="invalidName" class="text-danger">
+                      This field is requiered
+                    </small>
+                    <small class="text-danger" *ngIf="lider.value.name.length > 74">
+                      Limit is 75 Characters
+                    </small>
+                  </div>
+                </div>
+                <div class="col-sm-4 text-center">
+                  <h4>Image</h4>
+                  <div *ngIf="lider.value.image.length > 32" class="form-group container text-center">
+                    <img class="rounded" src="{{lider.value.image}}" height="80%"
+                      width="90%">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="container">
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label> Facebook url</label>
+                    <input maxlength="250" [class.is-invalid]="invalidFacebook" formControlName="facebook"
+                      class="form-material form-control" required />
+                    <small *ngIf="invalidFacebook" class="text-danger">
+                      This field is requiered
+                    </small>
+                    <small class="text-danger" *ngIf="lider.value.facebook.length > 249">
+                      Limit is 250 Characters
+                    </small>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label> Instagram url</label>
+                    <input maxlength="250" [class.is-invalid]="invalidInstagram" formControlName="instagram"
+                      class="form-material form-control" required />
+                    <small *ngIf="invalidInstagram" class="text-danger">
+                      This field is requiered
+                    </small>
+                    <small class="text-danger" *ngIf="lider.value.instagram.length > 249">
+                      Limit is 250 Characters
+                    </small>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="container">
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label> Email</label>
+                    <input maxlength="250" [class.is-invalid]="invalidEmail" formControlName="email"
+                      class="form-material form-control" required />
+                    <small *ngIf="invalidEmail" class="text-danger">
+                      This field is requiered
+                    </small>
+                    <small class="text-danger" *ngIf="lider.value.email.length > 249">
+                      Limit is 250 Characters
+                    </small>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label> Twitter url</label>
+                    <input maxlength="250" [class.is-invalid]="invalidTwitter" formControlName="twitter"
+                      class="form-material form-control" required />
+                    <small *ngIf="invalidTwitter" class="text-danger">
+                      This field is requiered
+                    </small>
+                    <small class="text-danger" *ngIf="lider.value.twitter.length > 249">
+                      Limit is 250 Characters
+                    </small>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <hr />
+
+            <input maxlength="250" hidden formControlName="liderships_fk" />
+            <input maxlength="250" hidden formControlName="liderships_fk" />
+
+            <div class="container">
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+
+                    <label> English description
+                      <small>
+                        (Limit 500 Characters - {{lider.value.descriptionEn.length}})
+                      </small>
+                    </label>
+
+                    <textarea maxlength="500" required formControlName="descriptionEn"
+                      [class.is-invalid]="invalidDescriptionEn" class="form-control" id="exampleFormControlTextarea1"
+                      rows="5" ></textarea>
+                    <small *ngIf="invalidDescriptionEn" class="text-danger">
+                      This field is requiered
+                    </small>
+                    <small class="text-danger" *ngIf="lider.value.descriptionEn.length > 459">
+                      Limit is 500 Characters
+                    </small>
+
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label> Spanish description
+                      <small>
+                        (Limit 500 Characters - {{lider.value.descriptionSp.length}})
+                      </small>
+                    </label>
+                    <textarea maxlength="500" required formControlName="descriptionSp"
+                      [class.is-invalid]="invalidDescriptionSp" class="form-control" id="exampleFormControlTextarea1"
+                      rows="5" ></textarea>
+                  </div>
+                  <small *ngIf="invalidDescriptionSp" class="text-danger">
+                    This field is requiered
+                  </small>
+                  <small class="text-danger" *ngIf="lider.value.descriptionSp.length > 459">
+                    Limit is 500 Characters
+                  </small>
+                </div>
+              </div>
+            </div>
+
+            <br />
+
+            <div class="form-group">
+              <div *ngIf="button === 1" class="container col-7">
+                <button type="submit" [disabled]="form.invalid" class="btn btn-success btn-block fas">
+                  SAVE <i class="fas fa-user-plus"></i>
+                </button>
+              </div>
+              <div *ngIf="button === 2" class="container col-7">
+                <button type="submit" [disabled]="form.invalid" class="btn btn-warning btn-block fas">
+                  UPDATE <i class="fas fa-user-edit"></i>
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

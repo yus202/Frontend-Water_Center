@@ -1,0 +1,115 @@
+<button type="button" class="btn btn-primary" (click)="openModal(template)">Add result</button>
+ 
+<ng-template #template>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Add result type</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form class="row" [formGroup] = "unitsForm" (ngSubmit) = "insertUnit()">
+        <div class="form-group col-5 ml-1">
+
+            <input type="text" placeholder="Nombre en español" formControlName="spanishVersion"
+             class="form-control" [ngClass]="{ 'is-invalid': submitted && f.spanishVersion.errors }"/>
+
+            <div *ngIf="submitted && f.spanishVersion.errors" class="invalid-feedback">
+                <div *ngIf="f.spanishVersion.errors.required">This field is required</div>
+                <div *ngIf="f.spanishVersion.errors.minlength">Should have at list 2 characters</div>
+                <div *ngIf="f.spanishVersion.errors.maxlength">Should have less than 50 characters</div>
+            </div>
+            
+        </div>
+    
+        <div class="form-group col-5 ml-1">
+
+            <input type="text" placeholder="Nombre en inglés" formControlName="englishVersion"
+             class="form-control" [ngClass]="{ 'is-invalid': submitted && f.englishVersion.errors }"/>
+
+            <div *ngIf="submitted && f.englishVersion.errors" class="invalid-feedback">
+                <div *ngIf="f.englishVersion.errors.required">This field is required</div>
+                <div *ngIf="f.englishVersion.errors.minlength">Should have at list 2 characters</div>
+                <div *ngIf="f.englishVersion.errors.maxlength">Should have less than 50 characters</div>
+            </div>
+            
+        </div>
+    
+        <div class="form-group col-11">
+            <button class="btn btn-success" type="submit">Create result type</button>
+        </div>
+    </form>
+  </div>
+</ng-template>
+
+<ng-template #updateModal>
+    <div class="modal-header">
+      <h4 class="modal-title pull-left">Update result type</h4>
+      <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form class="row" [formGroup] = "unitsForm" (ngSubmit) = "updateUnit()">
+          <div class="form-group col-5 ml-1">
+  
+              <input type="text" placeholder="Nombre en español" formControlName="spanishVersion"
+               class="form-control" [ngClass]="{ 'is-invalid': submitted && f.spanishVersion.errors }"/>
+  
+              <div *ngIf="submitted && f.spanishVersion.errors" class="invalid-feedback">
+                  <div *ngIf="f.spanishVersion.errors.required">This field is required</div>
+                  <div *ngIf="f.spanishVersion.errors.minlength">Should have at list 2 characters</div>
+                  <div *ngIf="f.spanishVersion.errors.maxlength">Should have less than 50 characters</div>
+              </div>
+              
+          </div>
+      
+          <div class="form-group col-5 ml-1">
+  
+              <input type="text" placeholder="Nombre en inglés" formControlName="englishVersion"
+               class="form-control" [ngClass]="{ 'is-invalid': submitted && f.englishVersion.errors }"/>
+  
+              <div *ngIf="submitted && f.englishVersion.errors" class="invalid-feedback">
+                  <div *ngIf="f.englishVersion.errors.required">This field is required</div>
+                  <div *ngIf="f.englishVersion.errors.minlength">Should have at list 2 characters</div>
+                  <div *ngIf="f.englishVersion.errors.maxlength">Should have less than 50 characters</div>
+              </div>
+              
+          </div>
+      
+          <div class="form-group col-11">
+              <button class="btn btn-warning" type="submit">Update result type</button>
+          </div>
+      </form>
+    </div>
+  </ng-template>
+
+<table class="col-11 ml-1 table table-hover"> 
+    <thead>
+        <tr>
+            <th>Results type list</th>
+        </tr>
+    </thead>
+    <tbody>
+        <div *ngIf="unitsList?.length != 0">
+        <tr *ngFor="let item of unitsList">
+            <td>{{item.name}}</td>
+            <td> 
+                <i data-toggle="tooltip" data-placement="top" title="You can not edit or delete this, it may affect plants report" *ngIf="item.name == 'Planted trees'" class="pointer fas fa-ban"></i>
+
+                <i data-toggle="tooltip" data-placement="top" title="You can not edit or delete this, it may affect plants report" *ngIf="item.name == 'Trees produced'" class="pointer fas fa-ban"></i> 
+
+                <i *ngIf="item.name != 'Planted trees' && item.name != 'Trees produced'" (click)="deleteUnit(item.id_unit)" class="pointer fas fa-trash-alt"></i>
+
+                <i *ngIf="item.name != 'Planted trees' && item.name != 'Trees produced'" (click)="openUpdateModal(updateModal, item.unit_fk)" class="pointer fas fa-edit ml-3"></i>
+            </td>
+        </tr>
+        </div>   
+    </tbody>
+</table>
+
+<script>
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
+</script>

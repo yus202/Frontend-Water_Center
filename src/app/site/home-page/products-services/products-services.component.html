@@ -1,0 +1,44 @@
+<div class="container-fluid">
+
+  <div id="products-services-list" class="container col-sm-12 col-md-12 col-xl-11">
+
+        <h1 *ngIf="languageID == 2">Productos & Servicios</h1>
+        <h1 *ngIf="languageID == 1">Products & Services</h1>
+    
+        <hr color="#774F38">
+        <div class="row">  
+            <div *ngFor="let item of productsServices" class="row">
+                <div class="card">
+                    <img src="{{item.image}}" class="card-img-top p-2" alt="Products-services">
+                    <div class="card-body">
+                        <p id="subtitle-h4" class="card-title">{{item.name}}</p>
+                        <button *ngIf="languageID == 1" (click)="openModal(template, item.image, item.name, item.decription)" class="btn btn-block btn-primary">
+                            More
+                        </button>
+                        <button *ngIf="languageID == 2" (click)="openModal(template, item.image, item.name, item.decription)" class="btn btn-block btn-primary">
+                            Más
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <ng-template #template>
+            <div class="modal-header">
+                <h4 class="modal-title pull-left" id="my-modal-title">{{name}}</h4>
+                <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <img class="col" style="max-width: 200px;" src="{{image}}" alt="product-service">
+                    <div class="col mt-3" id="my-modal-description">
+                       <p>{{description}}</p>
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+  </div>
+</div>
+  

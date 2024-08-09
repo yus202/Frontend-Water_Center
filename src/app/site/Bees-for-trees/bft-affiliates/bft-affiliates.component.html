@@ -1,0 +1,26 @@
+<!--negocios aliados Inicio-->
+<div id="negocio_Aliadas" class="container-fluid">
+    <div class="container col-11">
+        <h1 *ngIf="languageID == 1">Beekeepers</h1>
+        <h1 *ngIf="languageID == 2">Apicultores</h1>
+        <hr color="#774F38" />
+        <div class="row">
+            <div *ngFor="let affiliate of affiliates" class="col-12 col-sm-6 col-md-4 col-lg-3">
+            <div class="our-team">
+                <div class="picture">
+                <img class="img-fluid" src="{{ affiliate.image }}">
+                </div>
+                <div class="team-content">
+                <h3 class="name">{{affiliate.name}}</h3>
+                </div>
+                <ul class="social">
+                <li><a href="" class="fa fa-facebook" aria-hidden="true"></a></li>
+                <li><a href="" class="fa fa-twitter" aria-hidden="true"></a></li>
+                <li><a href="" class="fa fa-google-plus" aria-hidden="true"></a></li>
+                <li><a href="" class="fa fa-linkedin" aria-hidden="true"></a></li>
+                </ul>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>

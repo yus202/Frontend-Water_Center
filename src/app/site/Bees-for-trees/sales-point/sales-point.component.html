@@ -1,0 +1,38 @@
+<!--Points of sale-->
+<div id="negocio_Aliadas" class="container-fluid">
+  <div class="container col-11">
+    <h1 *ngIf="languageID == 1">Where to buy honey?</h1>
+    <h1 *ngIf="languageID == 2">¿Donde comprar miel?</h1>
+    <hr color="#774F38" />
+    <div class="row">
+      <div
+        *ngFor="let pointOfSale of salesPoint"
+        class="col-12 col-sm-6 col-md-4 col-lg-3"
+      >
+        <div class="our-team">
+          <div class="picture">
+            <img
+              class="img-fluid"
+              src="{{
+                pointOfSale.logo
+              }}"
+            />
+          </div>
+          <div class="team-content">
+            <h3 class="name">{{ pointOfSale.name }}</h3>
+          </div>
+          <ul class="social">
+            <li>
+              
+                <a aria-hidden="true"
+                >{{ pointOfSale.address }}
+                <i class="fas fa-map-marker-alt"></i
+                    ></a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

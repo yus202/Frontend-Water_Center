@@ -1,0 +1,112 @@
+<div class="row animated fadeIn">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+          <div class="text-right">
+            <button [routerLink]="['/admin/list/programs']"
+              class="btn waves-effect waves-light btn-rounded btn-primary">
+              <i class="fas fa-arrow-alt-circle-left"></i>
+              Back
+            </button>
+          </div>
+  
+          <div class="container">
+            <form #form="ngForm" [formGroup]="program" (ngSubmit)="ngSubmit()" autocomplete="off">
+              <input hidden formControlName="id" />
+  
+              <div class="container">
+                <div class="row">
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label> Program Name (English)</label>
+                      <input maxlength="250" class="form-material form-control" type="text" formControlName="nameEn"
+                        [class.is-invalid]="invalidNameEn" required />
+                      <small *ngIf="invalidNameEn" class="text-danger">
+                        This field is requiered
+                      </small>
+                      <small class="text-danger" *ngIf="program.value.nameEn.length > 249">
+                        Only 250 Characters
+                      </small>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label> Program Name (Spanish)</label>
+                      <input maxlength="250" class="form-material form-control" type="text" formControlName="nameSp"
+                        [class.is-invalid]="invalidNameSp" required />
+                      <small *ngIf="invalidNameSp" class="text-danger">
+                        This field is requiered
+                      </small>
+                      <small class="text-danger" *ngIf="program.value.nameSp.length > 249">
+                        Only 250 Characters
+                      </small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <hr>
+  
+              <input hidden formControlName="languaje_category_fk" />
+              <input hidden formControlName="program_fk" />
+  
+              <div class="container">
+                <div class="row">
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label> Description in English
+                        <small>
+                          (Limit 360 Characters -
+                          {{ program.value.descriptionEn.length }})
+                        </small>
+                      </label>
+                      <textarea maxlength="250" class="form-material form-control" type="text" formControlName="descriptionEn"
+                        [class.is-invalid]="invalidDescriptionEn" required ></textarea>
+                      <small *ngIf="invalidDescriptionEn" class="text-danger">
+                        This field is requiered
+                      </small>
+                      <small class="text-danger" *ngIf="program.value.descriptionEn.length > 249">
+                        Only 250 Characters
+                      </small>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label> Description in Spanish
+                        <small>
+                          (Limit 360 Characters -
+                          {{ program.value.descriptionSp.length }})
+                        </small>
+                      </label>
+                      <textarea maxlength="250" class="form-material form-control" type="text" formControlName="descriptionSp"
+                        required [class.is-invalid]="invalidDescriptionSp"></textarea> 
+                      <small *ngIf="invalidDescriptionSp" class="text-danger">
+                        This field is requiered
+                      </small>
+                      <small class="text-danger" *ngIf=" program.value.descriptionSp.length > 249">
+                        Only 250 Characters
+                      </small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+  
+              <div class="form-group">
+                <div *ngIf="button === 1" class="container col-7">
+                  <button type="submit" [disabled]="program.invalid" class="btn btn-success btn-block fas">
+                    SAVE <i class="fas fa-user-plus"></i>
+                  </button>
+                </div>
+                <div *ngIf="button === 2" class="container col-7">
+                  <button type="submit" [disabled]="program.invalid" class="btn btn-warning btn-block fas">
+                    UPDATE <i class="fas fa-user-edit"></i>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

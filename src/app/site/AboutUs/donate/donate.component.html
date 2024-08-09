@@ -1,0 +1,17 @@
+<div class="donate-container mt-5">
+    <div *ngFor="let item of donateData" class="container text-right card text-center shadow p-3 mb-5 bg-white rounded " style="width: 18rem; ">
+        <div class="card-body ">
+            <h3 class="card-title text-center title text-capitalize">{{item.title}}</h3>
+            <hr>
+            <img src="{{item.image}}" height="80%" class="card-img mt-3 rounded" alt="foto de lider">
+            <br>
+            <p class="card-text text-justify text-center ">{{item.description}}</p>
+            <a href="https://www.paypal.com/donate/?cmd=_s-xclick&hosted_button_id=6HKB2WJPYDSUL" type="button" class="btn btn-outline-info text-white btn-block">{{item.title}}</a>
+    
+        </div>
+    </div>
+    <div class="container-hidden">
+
+    </div>
+</div>
+

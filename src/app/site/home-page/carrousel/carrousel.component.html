@@ -1,0 +1,9 @@
+<swiper
+[slidesPerView]="1"
+[spaceBetween]="1"
+[autoplay] = "{delay: 10000}"
+[navigation]="true"
+>
+<ng-template *ngFor="let data of carrouselData" swiperSlide> <p>{{data.message}}</p> <img src="{{data.image}}" alt="carrousel image"> </ng-template>
+</swiper>
+

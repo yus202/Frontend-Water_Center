@@ -1,0 +1,84 @@
+<header>
+    <div id="first-nav-container" class="container-fluid big-scren" *ngFor="let info of companyInfo">
+        <div class="container">
+            <div id="data-container" class="row child">
+                <div class="col-1"></div>
+                <div class="row" id="left">
+                    <a target="_blank" href="https://api.whatsapp.com/send?phone=50688635952&app=facebook&entry_point=page_cta" class="nav-phone">
+                        <p class="nav-text"> <i class="fas fa-phone"></i>{{info.telephone}}</p>
+                    </a>
+                    
+                    <div class="nav-email">
+                        <p class="nav-text"> <i class="fas fa-envelope"></i> {{info.email}}</p>
+                    </div>
+                </div>
+
+                <div class="row" id="Rigth">
+                    <div class="nav-donate">
+                        <a href="https://www.paypal.com/donate/?cmd=_s-xclick&hosted_button_id=6HKB2WJPYDSUL" *ngIf="languageID == 1" class="nav-text"> <i class="fas fa-hand-holding-usd"></i> Donate</a>
+                        <a href="https://www.paypal.com/donate/?cmd=_s-xclick&hosted_button_id=6HKB2WJPYDSUL" *ngIf="languageID == 2" class="nav-text"> <i class="fas fa-hand-holding-usd"></i> Donar</a>
+                    </div>
+                    
+                    <div class="nav-login">
+                        <p routerLink="/login" class="nav-text"> <i class="fas fa-sign-in-alt"></i> Login</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="first-nav-container" class="container-fluid small-scren" *ngFor="let info of companyInfo">
+        <div class="container">
+            <div id="data-container" class="row child">
+                <div class="col-1"></div>
+                <div class="row" id="left">
+
+                    <a target="_blank" href="https://api.whatsapp.com/send?phone=50688635952&app=facebook&entry_point=page_cta" class="nav-phone">
+                        <p class="nav-text"> 
+                            <i class="fas fa-phone"></i>
+                        </p>
+                    </a>
+                    
+                    <div *ngIf="languageID == 1" (click)="openModal(template, 'Email', info.email)" class="nav-email">
+                        <p class="nav-text"> 
+                            <i class="fas fa-envelope"></i>
+                        </p>
+                    </div>
+
+                    <div *ngIf="languageID == 2" (click)="openModal(template, 'Correo electrónico', info.email)" class="nav-email">
+                        <p class="nav-text"> 
+                            <i class="fas fa-envelope"></i>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="row" id="Rigth">
+                    <div class="nav-donate">
+                        <a href="https://www.paypal.com/donate/?cmd=_s-xclick&hosted_button_id=6HKB2WJPYDSUL" *ngIf="languageID == 1" class="nav-text"> <i class="fas fa-hand-holding-usd"></i> Donate</a>
+                        <a href="https://www.paypal.com/donate/?cmd=_s-xclick&hosted_button_id=6HKB2WJPYDSUL" *ngIf="languageID == 2" class="nav-text"> <i class="fas fa-hand-holding-usd"></i> Donar</a>
+                    </div>
+                    
+                    <div class="nav-login">
+                        <p routerLink="/login" class="nav-text"> <i class="fas fa-sign-in-alt"></i> Login</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+</header>
+
+<ng-template #template>
+    <div class="modal-header">
+        <h4 class="modal-title pull-left" id="my-modal-title">{{title}}</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <div class="container ml-1">
+            {{data}}
+        </div>
+    </div>
+</ng-template>

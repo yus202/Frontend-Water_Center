@@ -1,0 +1,14 @@
+<app-third-nav *ngIf="Language == 1" [Name]= "'About Us'"></app-third-nav>
+<app-third-nav *ngIf="Language == 2" [Name]= "'Sobre nosotros'"></app-third-nav>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-8">
+            <app-lidership></app-lidership>
+            <app-partner-organizations></app-partner-organizations>
+            <app-board-director></app-board-director>
+        </div>
+        <div class="col-sm-4">
+            <app-donate></app-donate>
+        </div>
+    </div>
+</div>

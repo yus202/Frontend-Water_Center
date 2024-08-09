@@ -1,0 +1,15 @@
+<div *ngFor="let info of companyInfo" id="Texto-Video" class="container">
+
+    <div class="row">
+        <div class="container col-sm-12 col-xl-6">
+            <h1> {{info.company_name}} </h1>
+            <p class="text-justify">{{info.description}}</p>
+        </div>
+
+        <div class="container col-sm-12 col-xl-6">
+            <div id='right-box' class="embed-responsive embed-responsive-16by9">
+                <iframe title="Un video de youtube de Faithbox" class="embed-responsive-item" width="560" height="315" src="https://www.youtube.com/embed/EqD8aSMEpVE" frameborder="0 " allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture " allowfullscreen></iframe>
+            </div>
+        </div>​
+    </div>
+</div>

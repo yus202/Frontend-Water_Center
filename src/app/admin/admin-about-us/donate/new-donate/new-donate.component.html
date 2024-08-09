@@ -1,0 +1,133 @@
+<div class="row animated fadeIn">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+          <div class="text-right">
+            <button [routerLink]="['/admin/list/donate']"
+              class="btn waves-effect waves-light btn-rounded btn-primary">
+              <i class="fas fa-arrow-alt-circle-left"></i>
+              Back
+            </button>
+          </div>
+  
+          <div class="container">
+            <form #form="ngForm" [formGroup]="donate" (ngSubmit)="ngSubmit()" autocomplete="off">
+
+              <input hidden formControlName="id" />
+  
+              <div class="container">
+                <div class="row">
+                  <div class="col-sm-8">
+                    <label> Logo</label>
+                    <input maxlength="250" [class.is-invalid]="invalidImage" class="is-invalid form-material form-control" type="text" formControlName="image" required />
+                    <small *ngIf="invalidImage" class="text-danger">
+                      This field is requiered
+                    </small>
+                    <small class="text-danger" *ngIf="donate.value.image.length > 249">
+                      Only 250 Characters
+                    </small>
+                  </div>
+                  <div class="col-sm-4 text-center">
+                    <h4>Image</h4>
+                    <div *ngIf="donate.value.image.length > 32" class="form-group container text-center">
+                      <img src="{{donate.value.image}}" height="80%" width="100%">
+                    </div>
+                </div>
+                </div>
+              </div>
+ 
+              <input hidden formControlName="donate_fk" />
+              <input hidden formControlName="languaje_fk" />
+  
+              <div class="container mt-3">
+                <div class="row">
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label> Title in English</label>
+                      <input maxlength="10" class="form-material form-control" type="text" formControlName="titleEn"
+                        [class.is-invalid]="invalidTitleEn" required />
+                      <small *ngIf="invalidTitleEn" class="text-danger">
+                        This field is requiered
+                      </small>
+                      <small class="text-danger" *ngIf="donate.value.titleEn.length > 9">
+                        Only 10 Characters
+                      </small>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label> Title in Spanish</label>
+                      <input maxlength="10" class="form-material form-control" type="text" formControlName="titleSp"
+                        [class.is-invalid]="invalidTitleSp" required />
+                      <small *ngIf="invalidTitleSp" class="text-danger">
+                        This field is requiered
+                      </small>
+                      <small class="text-danger" *ngIf="donate.value.titleSp.length > 9">
+                        Only 10 Characters
+                      </small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <hr>
+
+             
+            <div class="container">
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label> Description in English  
+                      <small>
+                      (Limit 100 Characters - {{donate.value.descriptionEn.length}})
+                      </small>
+                    </label>
+                    <textarea rows="5" maxlength="100" class="form-material form-control" type="text" formControlName="descriptionEn"
+                      [class.is-invalid]="invalidDescriptionEn" required></textarea>
+                    <small  *ngIf="invalidDescriptionEn" class="text-danger">
+                      This field is requiered
+                    </small>
+                    <small class="text-danger" *ngIf="donate.value.descriptionEn.length > 99">
+                      Limit is 100 Characters
+                    </small>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label> Description in Spanish
+                      <small>
+                        (Limit 100 Characters - {{donate.value.descriptionSp.length}})
+                        </small>
+                    </label>
+                    <textarea rows="5" maxlength="100" class="form-material form-control" type="text" formControlName="descriptionSp"
+                      [class.is-invalid]="invalidDescriptionSp" required></textarea>
+                    <small *ngIf="invalidDescriptionSp" class="text-danger">
+                      This field is requiered
+                    </small>
+                    <small class="text-danger" *ngIf="donate.value.descriptionSp.length > 99">
+                      Limit is 100 Characters
+                    </small>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+  
+              <div class="form-group">
+                <div *ngIf="button === 1" class="container col-7">
+                  <button type="submit" [disabled]="donate.invalid" class="btn btn-success btn-block fas">
+                    SAVE <i class="fas fa-user-plus"></i>
+                  </button>
+                </div>
+                <div *ngIf="button === 2" class="container col-7">
+                  <button type="submit" [disabled]="donate.invalid" class="btn btn-warning btn-block fas">
+                    UPDATE <i class="fas fa-user-edit"></i>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

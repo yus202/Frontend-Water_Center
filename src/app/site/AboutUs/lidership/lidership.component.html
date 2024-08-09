@@ -1,0 +1,68 @@
+<div class="container">
+  <div class="row">
+
+      <div class="col-sm-12">
+          <div class="mt-5">
+            <h1 id="title"  *ngIf="LanguageID ==2">Líderes</h1>
+            <h1 id="title"  *ngIf="LanguageID ==1">GWC Leadership</h1>
+            <hr color="#774F38" />
+          </div>
+          <!-- lideres -->
+
+          <div *ngFor="let item of LidershipData" class="container margen_lider">
+              <div class=" shadow p-3  bg-white rounded">
+                  <div class="row no-gutters ">
+                      <div  class="col-md-3 mt-1">
+                          <div class="container">
+                            <div class="row text-cente">
+                              <div class="col mt-3">
+                                <img src="{{item.image}}" height="80%" class="card-img mt-3 rounded img-fluid" alt="foto de lider">
+                              </div>
+                            </div>
+                          </div>
+                      </div>
+                      <div class="col-md-9 ">
+                          <div class="card-body ">
+                              <div class="text-center">
+                                  <h4 class="card-title texto_lideres mt-3">  {{ item.name }} </h4>
+                              </div>
+                              <div>
+                                  <p class="card-text text-justify "> {{ item.description }}
+                                  </p>
+                              </div>
+                              <div class="text-center mt-4">
+                                <a *ngIf="item.facebook != 'null'"
+                                  class="btn btn-dark m-1 rounded-circle"
+                                  href="{{ item.facebook }}"
+                                  target="_blank"
+                                  ><i class="fab fa-facebook-f fa-x"></i>
+                                </a>
+                                <a *ngIf="item.email != 'null'"
+                                  class="btn btn-dark m-1 rounded-circle"
+                                  href="{{ item.email }}"
+                                  target="_blank"
+                                >
+                                  <i class="fas fa-envelope fa-1x"></i>
+                                </a>
+                                <a *ngIf="item.twitter != 'null'"
+                                  class="btn btn-dark m-1 rounded-circle"
+                                  href="{{ item.twitter }}"
+                                  target="_blank"
+                                >
+                                  <i class="fab fa-twitter fa-1x"></i>
+                                </a>
+                                <a *ngIf="item.instagram != 'null'"
+                                  class="btn btn-dark m-1 rounded-circle"
+                                  href="{{ item.instagram }}"
+                                  target="_blank"
+                                >
+                                  <i class="fab fa-instagram fa-1x"></i>
+                                </a>
+                                <hr color="#774F38" />
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+

@@ -1,0 +1,199 @@
+#title {
+    color: #774f38;
+    /* font-size: 60px; */
+    text-align: center;
+}
+
+.margen_lider {
+    margin-top: 5%;
+}
+
+.marin_img_card {
+    margin-top: -10px;
+}
+
+.prueba {
+    z-index: 1;
+    position: absolute;
+    height: 83px;
+    width: 83px;
+    margin-top: -22px;
+}
+
+.img_donar {
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    z-index: 12;
+    top: 5px;
+    left: 35px;
+}
+
+.bandera {
+    position: absolute;
+    right: 30px;
+}
+
+#first_navbar {
+    background-color: #0D8E95;
+    height: 28px;
+}
+
+.color_texto {
+    color: #774F38;
+}
+
+.texto_lideres {
+    color: #774F38;
+}
+
+.margen {
+    margin-top: -30px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    clear: both;
+    font-family: 'Archivo Narrow', sans-serif;
+}
+
+p {
+    margin-bottom: 1.5em;
+    font-size: 15px;
+}
+
+.donar {
+    background-color: #774F38;
+}
+
+.flotante {
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+    width: 83px;
+    height: 83px;
+    z-index: 10;
+    top: -25px;
+    left: 820px;
+    margin-top: 225px;
+}
+
+.flota {
+    position: absolute;
+    width: 83px;
+    height: 83px;
+    z-index: 12;
+    top: -25px;
+    left: 30px;
+}
+
+#barra {
+    height: 30px;
+}
+
+.phone {
+    margin-left: 220px;
+}
+
+@media (min-width: 0px) {
+    .disableWidth720 {
+        display: none !important;
+    }
+}
+
+@media (min-width: 720px) {
+    .disableWidth720 {
+        display: block !important;
+    }
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    /* Margin bottom by footer height */
+    margin-bottom: 300px;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 300px;
+    color: white;
+}
+
+
+/* Taller footer on small screens */
+
+@media (max-width: 34em) {
+    body {
+        margin-bottom: 500px;
+    }
+    .footer {
+        height: 500px;
+    }
+}
+
+#header-three {
+    background-color: #89BAB8;
+    height: 90px;
+    width: auto;
+    justify-content: flex-start;
+    box-shadow: 0px 10px 15px -10px;
+}
+
+#third-header-title {
+    padding-top: 30px;
+    color: #774F38;
+}
+
+#header-three-content {
+    margin-left: 9%;
+}
+
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    #header-three-content {
+        margin-left: -10px;
+    }
+}
+@media only screen and (max-width: 768px) {
+#nav03{
+font-size: 2px;
+}
+}
+/* Sticky footer style and color
+-------------------------------------------------- */
+
+footer {
+    padding-top: 35px;
+    padding-bottom: 280px;
+    background-color: #0D8E95;
+}
+
+footer a {
+    text-decoration: none;
+}
+
+footer .form-control {
+    box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.1);
+    border: none;
+    resize: none;
+    color: #d1d2d2;
+    padding: 0.7em 1em;
+}
+
+
+/* Margenes de arriba y de abajo del texto y video*/
+
+#Texto-Video {
+    margin-top: 60px;
+    margin-bottom: 60px;
+}

@@ -1,0 +1,95 @@
+
+
+#texto_mapa1>h1 {
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: #774F38;
+    font-size: 30px;
+}
+
+
+#texto_mapa2>h2 {
+    text-align: center;
+    color: #707070;
+    font-size: 10px;
+}
+
+
+#container_texto_mapa {
+    overflow: hidden;
+    background: rgb(241, 240, 240);
+    width: auto;
+    height: auto;
+    align-items: center;
+    max-height: 150px;
+    margin-top: 20px;
+    margin-bottom: 15px;
+  }
+  
+  .container_texto_mapa {
+    left: 0;
+    top: 0;
+    background: rgb(243, 241, 241);
+    height: 100%;
+    width: 100%;
+    position: absolute;
+  }
+  
+  
+  @media only screen and (max-width: 900px) {
+    /* For mobile phones: */
+    #container_texto_mapa {
+      margin-left: auto;
+      margin-right: auto;
+      background: rgb(243, 241, 241);
+      min-width: 100px;
+      min-height: 200px;
+      height: auto;
+      width: auto;
+      margin-top: auto;
+      margin-bottom: auto;
+    }
+    #texto_mapa1>h1{
+      text-align: center;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      color: #774F38;
+      font-size: 30px; 
+      margin-bottom: 10px;
+    }
+    #texto_mapa2>h2 {
+        text-align: center;
+        color: #646363;
+        margin-top: 5px;
+        font-size: 13px;
+        margin-top: -10px;
+    }
+  }
+
+  @media only screen and (max-width: 900px) {
+    /* For mobile phones: */
+    #container_texto_mapa {
+      margin-left: auto;
+      margin-right: auto;
+      background: rgb(243, 241, 241);
+      min-width: 100px;
+      min-height: 200px;
+      height: auto;
+      width: auto;
+      margin-top: auto;
+      margin-bottom: auto;
+    }
+    #texto_mapa1>h1{
+      text-align: center;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      color: #774F38;
+      font-size: 20px; 
+      margin-bottom: 10px;
+    }
+    #texto_mapa2>h2 {
+        text-align: center;
+        color: #646363;
+        margin-top: 5px;
+        font-size: 10px;
+        margin-top: -7px;
+    }
+  }

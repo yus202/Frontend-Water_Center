@@ -1,0 +1,158 @@
+<form id="content" class="col-12" [formGroup] = "eventForm" (ngSubmit) = "updateEvent()">
+
+    <div class="container col-12"> 
+
+        <div class="container row">
+            <button class="btn waves-effect waves-light btn-rounded btn-primary mr-0" [routerLink]="[ '/events' ]">
+                Back
+            </button>
+        </div>
+        
+        <div class="ml-lg-1 col-12 row">
+
+            <div class="mt-4 col-sm-12 col-md-6 col-lg-3">
+                <div id="program-selector" class="form-group">
+                    <label >Program</label>
+                    <select (change) = "setProgramVariable($event)" class="form-control" formControlName="selectProgram">
+                        <option [ngValue]="defaultProgram.program_fk" selected>{{defaultProgram.name}}</option>
+                        <option *ngFor="let program of programs" [ngValue] ="program.program_fk">{{program.name}}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div id="Datepicker" class="mt-4">
+                <label >Date</label>
+                <div class="form-inline form-group">
+                  <div class="input-group">
+                    <input class="form-control"
+                        placeholder="yyyy-mm-dd"
+                        name="dp" formControlName="dateFull" ngbDatepicker #d="ngbDatepicker">
+                    <div class="input-group-append">
+                      <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"><i class="far fa-calendar-alt"></i></button>
+                    </div>
+                  </div>
+                </div>
+            </div>
+              
+            <timepicker class="mt-4" formControlName = "time"></timepicker>
+            
+        </div>
+
+        <hr>
+
+        <div class="row col-12 languageVersion">
+
+            <div class="englishVersion col-sm-12 col-lg-4">
+                
+                <div class="form-group col-12">
+
+                    <h5>English version</h5>
+
+                    <textarea id="DescriptionEN" type="text" placeholder="Description" formControlName="descriptionEnglishVersion"
+                        class="form-control" [ngClass]="{ 'is-invalid': submitted && f.descriptionEnglishVersion.errors }"></textarea>
+        
+                    <div *ngIf="submitted && f.descriptionEnglishVersion.errors" class="invalid-feedback">
+                        <div *ngIf="f.descriptionEnglishVersion.errors.required">This field is required</div>
+                        <div *ngIf="f.descriptionEnglishVersion.errors.minlength">It should have at least 5 characters</div>
+                        <div *ngIf="f.descriptionEnglishVersion.errors.maxlength">This text is getting too long it should have less than 1000 characters</div>
+                    </div>
+                    
+                </div>
+
+                <div class="form-group col-12">
+                    
+                    <textarea id="equipmentEN" type="text" placeholder="Things you should bring with you!" formControlName="equipmentEnglishVersion"
+                        class="form-control" [ngClass]="{ 'is-invalid': submitted && f.equipmentEnglishVersion.errors }"></textarea>
+        
+                    <div *ngIf="submitted && f.equipmentEnglishVersion.errors" class="invalid-feedback">
+                        <div *ngIf="f.equipmentEnglishVersion.errors.required">This field is required</div>
+                        <div *ngIf="f.equipmentEnglishVersion.errors.minlength">It should have at least 5 characters</div>
+                        <div *ngIf="f.equipmentEnglishVersion.errors.maxlength">This text is getting too long it should have less than 600 characters</div>
+                    </div>
+                    
+                </div>
+
+                <div class="form-group col-12">
+                    
+                    <input type="text" placeholder="Where's the event going to be?" formControlName="locationEnglishVersion"
+                        class="form-control" [ngClass]="{ 'is-invalid': submitted && f.locationEnglishVersion.errors }"/>
+        
+                    <div *ngIf="submitted && f.locationEnglishVersion.errors" class="invalid-feedback">
+                        <div *ngIf="f.locationEnglishVersion.errors.required">This field is required</div>
+                        <div *ngIf="f.locationEnglishVersion.errors.minlength">It should have at least 5 characters</div>
+                        <div *ngIf="f.locationEnglishVersion.errors.maxlength">This text is getting too long it should have less than 500 characters</div>
+                    </div>
+                    
+                </div>
+
+            </div>
+
+
+            <div class="SpanishhVersion col-sm-12 col-lg-4">
+
+                <div class="form-group col-12">
+
+                    <h5>Versión en español</h5>
+
+                    <textarea id="DescriptionES" type="text" placeholder="Descripción" formControlName="descriptionSpanishVersion"
+                        class="form-control" [ngClass]="{ 'is-invalid': submitted && f.descriptionSpanishVersion.errors }"></textarea>
+        
+                    <div *ngIf="submitted && f.descriptionSpanishVersion.errors" class="invalid-feedback">
+                        <div *ngIf="f.descriptionSpanishVersion.errors.required">This field is required</div>
+                        <div *ngIf="f.descriptionSpanishVersion.errors.minlength">It should have at least 5 characters</div>
+                        <div *ngIf="f.descriptionSpanishVersion.errors.maxlength">This text is getting too long it should have less than 1000 characters</div>
+                    </div>
+                    
+                </div>
+
+                <div class="form-group col-12">
+                    
+                    <textarea id="equipmentES" type="text" placeholder="Cosas que debeías traer contigo!" formControlName="equipmentSpanishVersion"
+                        class="form-control" [ngClass]="{ 'is-invalid': submitted && f.equipmentSpanishVersion.errors }"></textarea>
+        
+                    <div *ngIf="submitted && f.equipmentSpanishVersion.errors" class="invalid-feedback">
+                        <div *ngIf="f.equipmentSpanishVersion.errors.required">this field is required</div>
+                        <div *ngIf="f.equipmentSpanishVersion.errors.minlength">It should have at least 5 characters</div>
+                        <div *ngIf="f.equipmentSpanishVersion.errors.maxlength">This text is getting too long it should have less than 600 characters</div>
+                    </div>
+                    
+                </div>
+
+                <div class="form-group col-12">
+                    
+                    <input type="text" placeholder="¿Dónde será el evento?" formControlName="locationSpanishVersion"
+                        class="form-control" [ngClass]="{ 'is-invalid': submitted && f.locationSpanishVersion.errors }"/>
+        
+                    <div *ngIf="submitted && f.locationSpanishVersion.errors" class="invalid-feedback">
+                        <div *ngIf="f.locationSpanishVersion.errors.required">This field is required</div>
+                        <div *ngIf="f.locationSpanishVersion.errors.minlength">It should have at least 5 characters</div>
+                        <div *ngIf="f.locationSpanishVersion.errors.maxlength">This text is getting too long it should have less than 500 characters</div>
+                    </div>
+                    
+                </div>
+
+            </div>
+
+            <div class="form-group col-md-12 col-lg-4">
+                <h5>Results & volunteers</h5>
+                <div class="form-group col-12 mt-4" *ngIf="!eventId">
+                    <p>Available until you insert a new event</p>
+                </div>
+    
+                <div class="form-group col-12" *ngIf="eventId">
+                    <app-insert-event-unit [eventIDFk]="eventId"></app-insert-event-unit>
+                    <app-insert-event-groups [eventIDFk]="eventId"></app-insert-event-groups>
+                </div>
+    
+            </div>
+        </div>
+
+    </div>
+
+    <div id="groupsAndUnits" class="form-group col-sm-12 col-md-12 col-lg-12">
+        <button class="btn btn-warning btn-block col-4" type="submit">Update event</button>
+    </div>
+
+</form>
+
+

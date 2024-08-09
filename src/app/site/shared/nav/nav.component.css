@@ -1,0 +1,176 @@
+#title {
+    color: #774f38;
+    /* font-size: 60px; */
+    text-align: center;
+}
+
+#navbarDropdown{
+    cursor: pointer;
+}
+
+.margen_lider {
+    margin-top: 5%;
+}
+
+.marin_img_card {
+    margin-top: -10px;
+}
+
+.prueba {
+    z-index: 1;
+    position: absolute;
+    height: 83px;
+    width: 83px;
+    margin-top: -22px;
+}
+
+.img_donar {
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    z-index: 12;
+    top: 5px;
+    left: 35px;
+}
+
+.bandera {
+    position: absolute;
+    right: 30px;
+}
+
+#first_navbar {
+    background-color: #0D8E95;
+    height: 28px;
+}
+
+.color_texto {
+    color: #774F38;
+}
+
+.nav-link {
+    color: #774F38;
+}
+
+.texto_lideres {
+    color: #774F38;
+}
+
+.margen {
+    margin-top: -30px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    clear: both;
+    font-family: 'Archivo Narrow', sans-serif;
+}
+
+p {
+    margin-bottom: 1.5em;
+    font-size: 15px;
+}
+
+.donar {
+    background-color: #774F38;
+}
+
+.flotante {
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+    width: 83px;
+    height: 83px;
+    z-index: 10;
+    top: -25px;
+    left: 820px;
+    margin-top: 225px;
+}
+
+.flota {
+    position: absolute;
+    width: 83px;
+    height: 83px;
+    z-index: 12;
+    top: -25px;
+    left: 30px;
+}
+
+#barra {
+    height: 30px;
+}
+
+#title{
+    margin-left: 70px;
+}
+
+.boton_nav{
+    width: 50px;
+    background-color: rgb(250, 250, 250);
+    border-color: rgb(250, 250, 250);
+    margin-top: 4px;
+    border-radius: 10px;
+}
+
+.phone {
+    margin-left: 220px;
+}
+
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: url(../../../../assets/images/language-solid.svg) 96% / 50% no-repeat rgba(238, 238, 238, 0.473);
+    border-style:none;
+    border-radius: 5px;
+}
+
+select::-ms-expand {
+    display: none; /* Remove default arrow in Internet Explorer 10 and 11 */
+}
+
+/* Target Internet Explorer 9 to undo the custom arrow */
+@media screen and (min-width:0\0) {
+    select {
+        background: none\9;
+        padding: 5px\9;
+    }
+}
+
+@media (min-width: 0px) {
+    .disableWidth720 {
+        display: none !important;
+    }
+}
+
+@media (min-width: 720px) {
+    .disableWidth720 {
+        display: block !important;
+    }
+}
+
+@media (max-width: 719px) {
+    .img {
+        margin-top: -15px;
+    }
+}
+
+@media (max-width: 500px) {
+    .img {
+        margin-left: -30px;
+    }
+}
+
+@media (max-width: 991px) {
+    #title{
+        margin-left: 70px;
+    }
+}
+
+@media (max-width: 719px) {
+    #title{
+        margin-left: auto;
+    }
+}

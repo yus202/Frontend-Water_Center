@@ -1,0 +1,17 @@
+#Texto-Video{
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+@media only screen and (max-width:500px) {
+    /* For mobile phones: */
+    
+    h1{
+        font-size: 20px;
+    }
+
+    #Texto-Video{
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+}

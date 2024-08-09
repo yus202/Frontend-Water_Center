@@ -1,0 +1,61 @@
+<button type="button" class="btn btn-primary col-12" (click)="openModal(template)">Add result</button>
+
+<ng-template #template>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">New results</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+        <form [formGroup] = "unitForm" (ngSubmit) = "insertEventUnit()">
+
+            <div class="row">
+                <div class="form-group col-sm-12 col-md-6 col-lg-6">
+
+                    <select (change) = "setUnitVariable($event)" class="form-control" formControlName="selectUnit">
+                        <option [ngValue]="null" disabled>Select result</option>
+                        <option *ngFor="let unit of units" [ngValue] ="unit.id_unit">{{unit.name}}</option>
+                    </select>
+                    <div *ngIf="submitted == true && selectedUnit == null">
+                        <p style="color: #CC000E; font-size: small;">Must select result</p>
+                    </div>
+    
+                </div>
+    
+                <div class="form-group col-6">
+    
+                    <input id="Description" type="number" placeholder="Quantity" formControlName="quantity"
+                     class="form-control" [ngClass]="{ 'is-invalid': submitted && f.quantity.errors }"/>
+        
+                    <div *ngIf="submitted && f.quantity.errors" class="invalid-feedback">
+                        <div *ngIf="f.quantity.errors.required">Is required</div>
+                    </div>
+    
+                </div>
+            </div>
+            <div class="form-group col-sm-12 col-md-6 col-lg-10">
+                <button class="btn btn-success btn-block" type="submit">Insert result</button>
+            </div>
+        </form>
+  </div>
+</ng-template>
+
+<table class="table table-hover">
+    
+    <thead>
+      <tr>
+        <th>Results</th>
+      </tr>
+    </thead>
+    <tbody>
+      <div *ngIf="retults?.length != 0">
+        <tr *ngFor="let item of retults">
+          <td>{{item.quantity}}</td>
+          <td>{{item.unit_name}}</td>
+          <td> <i (click)="deleteEventUnit(item.event_unit_id)" class="pointer fas fa-trash-alt"></i> </td>
+        </tr>
+      </div>   
+    </tbody>
+
+</table>

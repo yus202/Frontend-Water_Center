@@ -1,0 +1,42 @@
+<div id="titulo">
+  <p *ngIf="languajeID == 1">Video Gallery</p>
+  <p *ngIf="languajeID == 2">Galería de Videos</p>
+</div>
+<br>
+<br>
+<div class="container">
+  <div class="card-columns">
+    <div class="card-block  rounded" >
+      <div class="container">
+        <iframe  id="videosTamaño"
+        class="embed-responsive-item"
+        src="https://www.youtube.com/embed/vU-maaQjtyo"
+        allowfullscreen
+      ></iframe>
+
+      <iframe id="videosTamaño"
+        class="embed-responsive-item"
+        src="https://www.youtube.com/embed/LHlMe6mhhms?start=80"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+
+      </div>
+
+      </div>
+    </div>
+    <div  class="card-body text-center text-success">
+      <a id="btnVermas" type="btn-lg btn-block" target="_blank" class="btn btn-outline-success " href="https://www.youtube.com/channel/UC-Iv8E8O8frIFuKInHN0k6g">
+        <a  *ngIf="languajeID ==1">Go to YouTube Channel</a>
+        <a  *ngIf="languajeID ==2">Visita Nuestro Canal de YouTube</a> 
+      </a> 
+    </div>
+  </div>
+
+
+<!--src="https://drive.google.com/file/d/{{item.url}}/preview"
+
+    https://drive.google.com/file/d/1y2EWgf0IL8zZh_WcvQq2_O_bkvQ9hQ3Q/preview
+
+  -->
+

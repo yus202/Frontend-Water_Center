@@ -1,0 +1,22 @@
+.pointer{
+    cursor: pointer;
+}
+A {text-decoration: none;} 
+
+.scrolling::-webkit-scrollbar {
+    width: 10px;
+    background-color: #89BAB8;
+  }
+
+  .scrolling::-webkit-scrollbar-thumb {
+    background:  #0D8E95;
+    /* border-radius: 5px; */
+  }
+
+  .scrolling{
+    max-height: 626px;
+    margin-bottom: 10px;
+    overflow:scroll;
+    -webkit-overflow-scrolling: touch;
+}
+

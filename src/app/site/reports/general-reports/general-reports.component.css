@@ -1,0 +1,41 @@
+.form-group.hidden {
+    width: 0;
+    margin: 0;
+    border: none;
+    padding: 0;
+  }
+  .custom-day {
+    text-align: center;
+    padding: 0.185rem 0.25rem;
+    display: inline-block;
+    height: 2rem;
+    width: 2rem;
+  }
+  .custom-day.focused {
+    background-color: #e6e6e6;
+  }
+  .custom-day.range, .custom-day:hover {
+    background-color: #8D5943;
+    color: white;
+  }
+  .custom-day.faded {
+    background-color:#89BAB8;
+  }
+
+  #reports-container {
+    margin: 0 auto;
+    align-content: center;
+  }
+
+  #generate-btn {
+    background-color: #0D8E95;
+    margin: 0 auto;
+  }
+
+  select {
+    height: 37px;
+    width: 150px;
+    color: rgb(90, 90, 90);
+    border-radius: 5px;
+    border: 1px solid  rgb(180, 180, 180);
+  }

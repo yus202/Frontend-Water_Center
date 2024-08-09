@@ -1,0 +1,69 @@
+<div class="row animated fadeIn">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="text-right">
+                    <button [routerLink]="['/admin/list/media']"
+                        class="btn waves-effect waves-light btn-rounded btn-primary">
+                        <i class="fas fa-arrow-alt-circle-left"></i>
+                        Back
+                    </button>
+                </div>
+
+                <div class="container">
+                    <form #form="ngForm" [formGroup]="media" (ngSubmit)="ngSubmit()" autocomplete="off">
+                        <input hidden formControlName="id" />
+
+                        
+                        <div class="container">
+                            
+                        </div>
+                        
+                        <div class="form-group">
+                            <input class="form-material form-control" hidden type="text" formControlName="tittle" />
+                        </div>
+
+                        <div class="container">
+                            <div class="row">
+                              <div class="col-sm-5">
+                                <div class="form-group">
+                                  <label>URL</label>
+                                  <input maxlength="150" [class.is-invalid]="invalidURL" class="form-material form-control" type="text" formControlName="url" required />
+                                  <small *ngIf="invalidURL" class="text-danger">
+                                    This field is requiered
+                                  </small>
+                                  <small class="text-danger" *ngIf="media.value.url.length > 149">
+                                    Only 150 Characters
+                                  </small>
+                                </div>
+                              </div>
+                              <div class="col-sm-7 text-center">
+                                <h4>Image</h4>
+                                <div *ngIf="media.value.url.length > 32" class="form-group container text-center">
+                                  <img  class="rounded" src="{{media.value.url}}" height="250px" width="200px">
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                        <input hidden formControlName="media_category_fk" />
+
+                        <div class="form-group">
+                            <div *ngIf="button === 1" class="container col-7">
+                                <button type="submit" [disabled]="media.invalid" class="btn btn-success btn-block fas">
+                                    SAVE <i class="fas fa-user-plus"></i>
+                                </button>
+                            </div>
+                            <div *ngIf="button === 2" class="container col-7">
+                                <button type="submit" [disabled]="media.invalid" class="btn btn-warning btn-block fas">
+                                    UPDATE <i class="fas fa-user-edit"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,37 @@
+
+
+#Titulo_conciencia{
+  text-align: justify;
+}
+#Titulo_conciencia >h1{
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 30px;
+  color: #774F38;
+  text-align: center;
+}
+
+/* fin negocios aliados */
+
+
+.title{
+  color:#774F38;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#btnfbing{
+  margin-bottom: 50px;
+}
+#IG{
+  background: #d6249f;
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
+  margin-bottom: 50px;
+ }
+
+ .image-size{
+  width: 300px;
+  height: 300px;
+
+ }
+.card{
+  height: 600px;
+}

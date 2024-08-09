@@ -1,0 +1,55 @@
+#DescriptionES {
+    height: 75px;
+}
+
+#DescriptionEN {
+    height: 75px;
+}
+
+#close:hover {
+    cursor: pointer;
+    font-size: 35.2px;
+}
+
+#equipmentEN {
+    height: 55px;
+}
+
+#equipmentES {
+    height: 55px;
+}
+
+#Datepicker{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#program-selector{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+timepicker{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.fa-calendar-day {
+    color: #774F38;
+}
+
+h5 {
+    color: #774F38;
+}
+
+.btn {
+    margin: auto;
+}
+
+#content {
+    margin: auto;
+}
+
+h2 {
+ color: #774F38;   
+}
